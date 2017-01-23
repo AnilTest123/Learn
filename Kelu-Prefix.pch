@@ -1,0 +1,14 @@
+//
+//  Kelu-Prefix.pch
+//  Kelu
+//
+//  Created by Anil Chopra on 03/07/16.
+//  Copyright © 2016 Anil Chopra. All rights reserved.
+//
+
+#ifdef DEBUG
+#define DEBUGLOG NSLog
+#else
+#define DEBUGLOG(x,...)
+#endif
+

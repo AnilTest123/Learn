@@ -1,0 +1,41 @@
+PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - DGActivityIndicatorView (2.0)
+  - JSONModel (1.2.0)
+  - REFrostedViewController (2.4.8)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.x)
+  - DGActivityIndicatorView
+  - JSONModel
+  - REFrostedViewController
+
+SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  DGActivityIndicatorView: 52875b025a6ccf6a431a905285c12e2bb95eb559
+  JSONModel: 12523685c4b623553ccf844bbbf7007624317b2c
+  REFrostedViewController: a893b4979ba1f200c547aef9ff4c3fd5a18f5923
+
+PODFILE CHECKSUM: eaa86eedae0e300b93b825cf08b4395fdd9b243a
+
+COCOAPODS: 1.0.0
