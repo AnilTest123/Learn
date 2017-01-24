@@ -1,13 +1,11 @@
 //
-//  LoginViewController.m
+//  SignUpViewController.m
 //  Kelu
 //
-//  Created by Anil Chopra on 02/07/16.
-//  Copyright © 2016 Anil Chopra. All rights reserved.
+//  Created by Nagarajan SD on 24/01/17.
+//  Copyright © 2017 Anil Chopra. All rights reserved.
 //
 
-#import "LoginViewController.h"
-#import "AppDelegate.h"
 #import "SignUpViewController.h"
 #import "SocialNetworkingView.h"
 
@@ -16,20 +14,17 @@
 #define CONTINUE_BUTTON_SHADOW_RADIUS 5.0f
 #define CONTINUE_BUTTON_SHADOW_OPACITY 0.7f
 
-@interface LoginViewController () <SocialNetworkingViewDelegate>
-{
-    
-}
+@interface SignUpViewController () <SocialNetworkingViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *email;
 @property (nonatomic, weak) IBOutlet UITextField *password;
-@property (nonatomic, weak) IBOutlet UIView *signUpView;
+@property (nonatomic, weak) IBOutlet UITextField *confirmPassword;
 @property (nonatomic, weak) IBOutlet UIButton *continueButton;
 @property (nonatomic, weak) IBOutlet UIView *socialView;
 
 @end
 
-@implementation LoginViewController
+@implementation SignUpViewController
 
 #pragma mark - Life Cycle method
 
@@ -60,14 +55,8 @@
 
 - (void)initialize
 {
-    [self initializeSignupView];
     [self initializeContinueButton];
     [self initializeSocialView];
-}
-
-- (void)initializeSignupView
-{
-    [self addSingleTapGestureOnSignUpView];
 }
 
 - (void)initializeContinueButton
@@ -82,15 +71,9 @@
     [self.socialView addSubview:socialNetworkingView];
 }
 
+
 #pragma mark - Customization Method
 
-- (void)addSingleTapGestureOnSignUpView
-{
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSignUpViewTapped:)];
-    singleTap.numberOfTouchesRequired = 1;
-    singleTap.numberOfTapsRequired = 1;
-    [self.signUpView addGestureRecognizer:singleTap];
-}
 
 - (void)customizeContinueButton
 {
@@ -104,31 +87,9 @@
 #pragma mark - Button Action Method
 
 #pragma mark Sign In Button
-- (IBAction)signInButtonPressed:(UIButton *)sender
+- (IBAction)signUpButtonPressed:(UIButton *)sender
 {
-//    AppDelegate *delegate = ((AppDelegate*)[[UIApplication sharedApplication]delegate]);
-//    
-//    [delegate initiateContentViewController];
-}
-
-#pragma mark Forgot Password Button
-- (IBAction)forgotPasswordButtonPressed:(UIButton *)sender
-{
-    NSLog(@"%s", __FUNCTION__);
-}
-
-#pragma mark - Gesture Handler
-
-#pragma mark SignUp View Tap Gesture
-
-- (void)handleSignUpViewTapped:(UIGestureRecognizer *)sender
-{
-    SignUpViewController *signUpViewController =
-    [self.storyboard instantiateViewControllerWithIdentifier:@"SignUpViewController"];
-    if([self.navigationController respondsToSelector:@selector(showViewController:sender:)])
-        [self.navigationController showViewController:signUpViewController sender:self];
-    else
-        [self.navigationController pushViewController:signUpViewController animated:YES];
+    
 }
 
 #pragma mark - Delegates
@@ -149,5 +110,7 @@
 {
     NSLog(@"%s", __FUNCTION__);
 }
+
+
 
 @end

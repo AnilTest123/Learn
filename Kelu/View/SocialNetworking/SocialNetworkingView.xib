@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SocialNetworkingView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrr-ed-RtW" userLabel="FaceBook Button">
+                    <rect key="frame" x="82" y="15" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="L8g-sC-szc"/>
+                        <constraint firstAttribute="height" constant="50" id="Rux-3A-rEL"/>
+                    </constraints>
+                    <state key="normal" image="Facebook"/>
+                    <connections>
+                        <action selector="facebookButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="x6D-rG-Uvl"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gyw-jC-cti" userLabel="Twitter Button">
+                    <rect key="frame" x="162" y="15" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="XvF-2t-NZt"/>
+                        <constraint firstAttribute="height" constant="50" id="cmL-Ja-tOT"/>
+                    </constraints>
+                    <state key="normal" image="Twitter"/>
+                    <connections>
+                        <action selector="twitterButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="8j8-pn-9T3"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IfC-2O-3b1" userLabel="Google Button">
+                    <rect key="frame" x="242" y="15" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="DiE-H8-ZGd"/>
+                        <constraint firstAttribute="height" constant="50" id="K54-un-l5s"/>
+                    </constraints>
+                    <state key="normal" image="Google+"/>
+                    <connections>
+                        <action selector="googlePlusButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="m4n-aT-zBF"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="IfC-2O-3b1" firstAttribute="leading" secondItem="Gyw-jC-cti" secondAttribute="trailing" constant="30" id="19K-nX-ttr"/>
+                <constraint firstItem="wrr-ed-RtW" firstAttribute="top" secondItem="Gyw-jC-cti" secondAttribute="top" id="ObB-Da-a0C"/>
+                <constraint firstItem="Gyw-jC-cti" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="YtF-SL-wpj"/>
+                <constraint firstItem="Gyw-jC-cti" firstAttribute="leading" secondItem="wrr-ed-RtW" secondAttribute="trailing" constant="30" id="gRU-Gi-cSF"/>
+                <constraint firstItem="Gyw-jC-cti" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="n8x-6u-10d"/>
+                <constraint firstItem="IfC-2O-3b1" firstAttribute="top" secondItem="Gyw-jC-cti" secondAttribute="top" id="p52-qf-pYS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="facebookButton" destination="wrr-ed-RtW" id="tYV-1o-aAQ"/>
+                <outlet property="googlePlusButton" destination="IfC-2O-3b1" id="ATf-Cf-doS"/>
+                <outlet property="twitterButton" destination="Gyw-jC-cti" id="fDX-be-Oiz"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="Facebook" width="48" height="48"/>
+        <image name="Google+" width="48" height="48"/>
+        <image name="Twitter" width="48" height="48"/>
+    </resources>
+</document>
