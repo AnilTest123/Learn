@@ -7,11 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFHTTPRequestOperationManager.h"
+#import "KeluAFHTTPRequestOperationManager.h"
 
 @interface ApiResponseHandler : NSObject
+
+@property (nonatomic, strong) KeluAFHTTPRequestOperationManager *httpManager;
+
+#pragma mark - Shared Instance
 + (ApiResponseHandler *)sharedApiResponseHandlerInstance;
-@property(nonatomic,strong)AFHTTPRequestOperationManager *httpManager;
-#pragma mark - Domain Validation
--(void)fetchTestDataWithsuccessCompletionBlock:(void(^)(NSString* responseData))success failureCompletionBlock:(void(^)(NSError* error))failure;
+
+#pragma mark - Reset
++ (void)resetSharedInstance;
+
+#pragma mark - API Calls
+
+#pragma mark Register User
+-(void)registerUserWith:(NSMutableDictionary*)user withSuccessCompletionBlock:(void(^)(NSString*responseData))success
+withFailureCompletionBlock:(void(^)(NSError*error))failure;
+
 @end
