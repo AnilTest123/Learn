@@ -19,7 +19,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
--(void)initiateContentViewController;
+- (void)initiateContentViewController;
 
 @end
 
