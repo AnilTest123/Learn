@@ -8,7 +8,7 @@
 
 #import "ContentViewController.h"
 #import "ApiResponseHandler.h"
-#import "ActivityIndicator.h"
+#import "KeluActivityIndicator.h"
 #import "JsonTest.h"
 #import "CHTumblrMenuView.h"
 

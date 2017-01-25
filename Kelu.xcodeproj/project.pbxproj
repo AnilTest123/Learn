@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		611B61531E390A5D002AD82F /* KeluAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 611B61521E390A5D002AD82F /* KeluAlertViewController.m */; };
+		611B615A1E390EC2002AD82F /* KeluActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 611B61571E390EC2002AD82F /* KeluActivityIndicator.m */; };
+		611B615B1E390EC2002AD82F /* KeluSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 611B61591E390EC2002AD82F /* KeluSpinner.m */; };
+		611B615E1E391015002AD82F /* UIColor+More.m in Sources */ = {isa = PBXBuildFile; fileRef = 611B615D1E391015002AD82F /* UIColor+More.m */; };
+		611B61621E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 611B61611E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.m */; };
 		61460B9C1E37D12B000CC92F /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61460B9B1E37D12B000CC92F /* SignUpViewController.m */; };
 		61460BA11E37D90B000CC92F /* SocialNetworkingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61460BA01E37D90B000CC92F /* SocialNetworkingView.m */; };
 		61460BA31E37D933000CC92F /* SocialNetworkingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61460BA21E37D933000CC92F /* SocialNetworkingView.xib */; };
@@ -30,7 +35,6 @@
 		C0FF7F071D27F462005FD479 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F061D27F462005FD479 /* ContentViewController.m */; };
 		C0FF7F0A1D28B93B005FD479 /* ApiResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F091D28B93B005FD479 /* ApiResponseHandler.m */; };
 		C0FF7F0F1D28C0B8005FD479 /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F0E1D28C0B8005FD479 /* ErrorHandler.m */; };
-		C0FF7F161D28C604005FD479 /* ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F151D28C604005FD479 /* ActivityIndicator.m */; };
 		C0FF7F1A1D28DFF6005FD479 /* JsonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F191D28DFF6005FD479 /* JsonTest.m */; };
 		C0FF7F1D1D28E236005FD479 /* JsonTestData.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F1C1D28E236005FD479 /* JsonTestData.m */; };
 		C0FF7F211D28F856005FD479 /* ContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F201D28F856005FD479 /* ContentTableViewCell.m */; };
@@ -56,6 +60,16 @@
 
 /* Begin PBXFileReference section */
 		3622C8C945E52E09D9D01020 /* Pods-Kelu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kelu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kelu/Pods-Kelu.debug.xcconfig"; sourceTree = "<group>"; };
+		611B61511E390A5D002AD82F /* KeluAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeluAlertViewController.h; path = "Viewcontroller/Alert Controller/KeluAlertViewController.h"; sourceTree = "<group>"; };
+		611B61521E390A5D002AD82F /* KeluAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeluAlertViewController.m; path = "Viewcontroller/Alert Controller/KeluAlertViewController.m"; sourceTree = "<group>"; };
+		611B61561E390EC2002AD82F /* KeluActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeluActivityIndicator.h; path = View/Spinner/KeluActivityIndicator.h; sourceTree = "<group>"; };
+		611B61571E390EC2002AD82F /* KeluActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeluActivityIndicator.m; path = View/Spinner/KeluActivityIndicator.m; sourceTree = "<group>"; };
+		611B61581E390EC2002AD82F /* KeluSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeluSpinner.h; path = View/Spinner/KeluSpinner.h; sourceTree = "<group>"; };
+		611B61591E390EC2002AD82F /* KeluSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeluSpinner.m; path = View/Spinner/KeluSpinner.m; sourceTree = "<group>"; };
+		611B615C1E391015002AD82F /* UIColor+More.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+More.h"; path = "Util/Category/UIColor+More.h"; sourceTree = "<group>"; };
+		611B615D1E391015002AD82F /* UIColor+More.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+More.m"; path = "Util/Category/UIColor+More.m"; sourceTree = "<group>"; };
+		611B61601E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeluAFHTTPRequestOperationManager.h; path = Model/KeluAFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		611B61611E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeluAFHTTPRequestOperationManager.m; path = Model/KeluAFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		61460B9A1E37D12B000CC92F /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = Viewcontroller/SignUp/SignUpViewController.h; sourceTree = "<group>"; };
 		61460B9B1E37D12B000CC92F /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = Viewcontroller/SignUp/SignUpViewController.m; sourceTree = "<group>"; };
 		61460B9F1E37D90B000CC92F /* SocialNetworkingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocialNetworkingView.h; path = View/SocialNetworking/SocialNetworkingView.h; sourceTree = "<group>"; };
@@ -102,8 +116,6 @@
 		C0FF7F0E1D28C0B8005FD479 /* ErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ErrorHandler.m; path = Util/ErrorHandler.m; sourceTree = "<group>"; };
 		C0FF7F101D28C1AC005FD479 /* KeluConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeluConstants.h; path = Util/KeluConstants.h; sourceTree = "<group>"; };
 		C0FF7F131D28C40B005FD479 /* Kelu-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Kelu-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		C0FF7F141D28C604005FD479 /* ActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityIndicator.h; path = View/ActivityIndicator.h; sourceTree = "<group>"; };
-		C0FF7F151D28C604005FD479 /* ActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityIndicator.m; path = View/ActivityIndicator.m; sourceTree = "<group>"; };
 		C0FF7F181D28DFF6005FD479 /* JsonTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JsonTest.h; path = Model/JsonTest.h; sourceTree = "<group>"; };
 		C0FF7F191D28DFF6005FD479 /* JsonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JsonTest.m; path = Model/JsonTest.m; sourceTree = "<group>"; };
 		C0FF7F1B1D28E236005FD479 /* JsonTestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JsonTestData.h; path = Model/JsonTestData.h; sourceTree = "<group>"; };
@@ -139,6 +151,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		611B61501E390A1D002AD82F /* Alert Controller */ = {
+			isa = PBXGroup;
+			children = (
+				611B61511E390A5D002AD82F /* KeluAlertViewController.h */,
+				611B61521E390A5D002AD82F /* KeluAlertViewController.m */,
+			);
+			name = "Alert Controller";
+			sourceTree = "<group>";
+		};
+		611B61541E390E93002AD82F /* TumblrMenu */ = {
+			isa = PBXGroup;
+			children = (
+				C049B2581D2AC414007EE171 /* CHTumblrMenuView.h */,
+				C049B2591D2AC414007EE171 /* CHTumblrMenuView.m */,
+				C049B2501D2AC3C5007EE171 /* CHViewController.h */,
+				C049B2511D2AC3C5007EE171 /* CHViewController.m */,
+			);
+			name = TumblrMenu;
+			sourceTree = "<group>";
+		};
+		611B61551E390EAA002AD82F /* Spinner */ = {
+			isa = PBXGroup;
+			children = (
+				611B61561E390EC2002AD82F /* KeluActivityIndicator.h */,
+				611B61571E390EC2002AD82F /* KeluActivityIndicator.m */,
+				611B61581E390EC2002AD82F /* KeluSpinner.h */,
+				611B61591E390EC2002AD82F /* KeluSpinner.m */,
+			);
+			name = Spinner;
+			sourceTree = "<group>";
+		};
+		611B615F1E3911C1002AD82F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C0FF7F081D28B93B005FD479 /* ApiResponseHandler.h */,
+				C0FF7F091D28B93B005FD479 /* ApiResponseHandler.m */,
+				611B61601E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.h */,
+				611B61611E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		61460B991E37D0FF000CC92F /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +241,8 @@
 		C049B24C1D2969AC007EE171 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				611B615C1E391015002AD82F /* UIColor+More.h */,
+				611B615D1E391015002AD82F /* UIColor+More.m */,
 				C049B24D1D2969D1007EE171 /* CALayer+UIColor.h */,
 				C049B24E1D2969D1007EE171 /* CALayer+UIColor.m */,
 			);
@@ -264,6 +320,7 @@
 		C0FF7EF01D27D2A8005FD479 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				611B61501E390A1D002AD82F /* Alert Controller */,
 				61460B9D1E37D676000CC92F /* Login */,
 				61460B991E37D0FF000CC92F /* SignUp */,
 				C0FF7EF71D27D915005FD479 /* RootViewController.h */,
@@ -281,14 +338,10 @@
 		C0FF7F001D27EE66005FD479 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				611B61551E390EAA002AD82F /* Spinner */,
+				611B61541E390E93002AD82F /* TumblrMenu */,
 				61460B9E1E37D8D5000CC92F /* SocialNetworking */,
-				C049B2581D2AC414007EE171 /* CHTumblrMenuView.h */,
-				C049B2591D2AC414007EE171 /* CHTumblrMenuView.m */,
-				C049B2501D2AC3C5007EE171 /* CHViewController.h */,
-				C049B2511D2AC3C5007EE171 /* CHViewController.m */,
 				C0FF7F1E1D28F82C005FD479 /* ContentViewCell */,
-				C0FF7F141D28C604005FD479 /* ActivityIndicator.h */,
-				C0FF7F151D28C604005FD479 /* ActivityIndicator.m */,
 				C0FF7F011D27EE72005FD479 /* Menu */,
 			);
 			name = View;
@@ -306,9 +359,8 @@
 		C0FF7F0B1D28B941005FD479 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				611B615F1E3911C1002AD82F /* API */,
 				C0FF7F171D28DC67005FD479 /* New Group */,
-				C0FF7F081D28B93B005FD479 /* ApiResponseHandler.h */,
-				C0FF7F091D28B93B005FD479 /* ApiResponseHandler.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -531,8 +583,11 @@
 				C0FF7EBF1D279988005FD479 /* AppDelegate.m in Sources */,
 				C0FF7EC81D279988005FD479 /* Kelu.xcdatamodeld in Sources */,
 				C0FF7F0F1D28C0B8005FD479 /* ErrorHandler.m in Sources */,
+				611B61531E390A5D002AD82F /* KeluAlertViewController.m in Sources */,
 				C0FF7F071D27F462005FD479 /* ContentViewController.m in Sources */,
+				611B615B1E390EC2002AD82F /* KeluSpinner.m in Sources */,
 				61460B9C1E37D12B000CC92F /* SignUpViewController.m in Sources */,
+				611B615A1E390EC2002AD82F /* KeluActivityIndicator.m in Sources */,
 				C0FF7F1A1D28DFF6005FD479 /* JsonTest.m in Sources */,
 				C049B2521D2AC3C5007EE171 /* CHViewController.m in Sources */,
 				C049B24F1D2969D1007EE171 /* CALayer+UIColor.m in Sources */,
@@ -542,12 +597,13 @@
 				C0FF7F041D27EEA2005FD479 /* MenuTitleTableViewCell.m in Sources */,
 				C0FF7F211D28F856005FD479 /* ContentTableViewCell.m in Sources */,
 				C0FF7F1D1D28E236005FD479 /* JsonTestData.m in Sources */,
-				C0FF7F161D28C604005FD479 /* ActivityIndicator.m in Sources */,
 				C0FF7EF31D27D2D3005FD479 /* LoginViewController.m in Sources */,
 				C0FF7F0A1D28B93B005FD479 /* ApiResponseHandler.m in Sources */,
+				611B61621E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.m in Sources */,
 				C049B25A1D2AC414007EE171 /* CHTumblrMenuView.m in Sources */,
 				C0FF7EF91D27D915005FD479 /* RootViewController.m in Sources */,
 				61460BA11E37D90B000CC92F /* SocialNetworkingView.m in Sources */,
+				611B615E1E391015002AD82F /* UIColor+More.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

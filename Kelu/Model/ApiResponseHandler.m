@@ -9,7 +9,14 @@
 #import "ApiResponseHandler.h"
 #import "ErrorHandler.h"
 
+@interface ApiResponseHandler()
+
+@property (nonatomic, strong) NSString *baseURL;
+
+@end
+
 @implementation ApiResponseHandler
+
 static ApiResponseHandler *sharedApiResponseHandlerInstance = nil;
 static dispatch_once_t dispatchOnce;
 
@@ -18,30 +25,86 @@ static dispatch_once_t dispatchOnce;
     if (sharedApiResponseHandlerInstance == nil) {
         dispatch_once(&dispatchOnce, ^{
             sharedApiResponseHandlerInstance=[[ApiResponseHandler alloc]init];
+            sharedApiResponseHandlerInstance.baseURL = @"http://yapp-env.elasticbeanstalk.com/api/";
         });
     }
     return sharedApiResponseHandlerInstance;
 }
 
-#pragma mark - Fetch Test Data
--(void)fetchTestDataWithsuccessCompletionBlock:(void(^)(NSString* responseData))success failureCompletionBlock:(void(^)(NSError* error))failure
++ (void)resetSharedInstance
 {
-    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] initWithCapacity:0];
-    AFHTTPRequestOperationManager *httpClient = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://jsonplaceholder.typicode.com"]];
-    
-    httpClient.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [httpClient GET:@"posts" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        dispatch_queue_t t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
-        dispatch_sync(t, ^{
-            
-           
-        });
-        
-        [ErrorHandler verifySuccessResponseFromResponseOperation:operation WithSuccessCompletionBlock:success failureCompletionBlock:failure];
-        
-    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [ErrorHandler fetchErrorFromResponseOperation:operation WithError:error WithfailureCompletionBlock:failure];
-    }];
+    sharedApiResponseHandlerInstance = nil;
+    dispatchOnce = 0;
 }
+
+-(AFHTTPRequestOperationManager *)httpManager
+{
+    if(_httpManager)
+        return _httpManager;
+    else
+    {   _httpManager = [KeluAFHTTPRequestOperationManager manager];
+        return _httpManager;
+    }
+}
+
+
+#pragma mark - Generic Method
+-(void)performHttpOperationWithType:(NSString*)httpType WithBaseURL:(NSString*)baseURL withEndPoint:(NSString*)endPoint withParameteres:(NSMutableDictionary*)parameters SuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure
+{
+    //Not using base URL because its different in different scenario and hence combining all
+    NSString *url = [[NSURL URLWithString:endPoint relativeToURL:[NSURL URLWithString:baseURL]] absoluteString];
+    self.httpManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    //Make sure the requestSerializer is AFHTTPRequestSerializer as the parameters needs to be added as part of URL;
+    if([httpType isEqualToString:@"PUT"])
+    {
+        self.httpManager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    }
+    else
+    {
+        self.httpManager.requestSerializer = [AFJSONRequestSerializer serializer];
+    }
+    
+    
+    if([httpType isEqualToString:@"POST"])
+    {
+        [_httpManager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [ErrorHandler verifySuccessResponseFromResponseOperation:operation WithSuccessCompletionBlock:success failureCompletionBlock:failure];
+        }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [ErrorHandler fetchErrorFromResponseOperation:operation WithError:error WithfailureCompletionBlock:failure];
+        }];
+    }
+    else if([httpType isEqualToString:@"GET"])
+    {
+        [_httpManager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [ErrorHandler verifySuccessResponseFromResponseOperation:operation WithSuccessCompletionBlock:success failureCompletionBlock:failure];
+        }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [ErrorHandler fetchErrorFromResponseOperation:operation WithError:error WithfailureCompletionBlock:failure];
+        }];
+    }
+    
+    else if([httpType isEqualToString:@"PUT"])
+    {
+        [_httpManager PUT:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [ErrorHandler verifySuccessResponseFromResponseOperation:operation WithSuccessCompletionBlock:success failureCompletionBlock:failure];
+        }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [ErrorHandler fetchErrorFromResponseOperation:operation WithError:error WithfailureCompletionBlock:failure];
+        }];
+    }
+    
+    else if([httpType isEqualToString:@"DELETE"])
+    {
+        [_httpManager DELETE:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [ErrorHandler verifySuccessResponseFromResponseOperation:operation WithSuccessCompletionBlock:success failureCompletionBlock:failure];
+        }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [ErrorHandler fetchErrorFromResponseOperation:operation WithError:error WithfailureCompletionBlock:failure];
+        }];
+    }
+}
+
+
+- (void)registerUserWith:(NSMutableDictionary *)parameters withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure
+{
+    [self performHttpOperationWithType:@"POST" WithBaseURL:self.baseURL withEndPoint:@"createuser/" withParameteres:parameters SuccessCompletionBlock:success withFailureCompletionBlock:failure];
+}
+
 @end

@@ -74,7 +74,6 @@
 
 #pragma mark - Customization Method
 
-
 - (void)customizeContinueButton
 {
     self.continueButton.layer.cornerRadius = CONTINUE_BUTTON_CORNER_RADIUS;
@@ -89,7 +88,37 @@
 #pragma mark Sign In Button
 - (IBAction)signUpButtonPressed:(UIButton *)sender
 {
-    
+    if ([[self.password text] isEqualToString:[self.confirmPassword text]])
+    {
+        [KeluActivityIndicator showIndicator:self.view animated:YES];
+        [[ApiResponseHandler sharedApiResponseHandlerInstance] registerUserWith:[self getUserRegisterParameters]
+                                                     withSuccessCompletionBlock:^(NSString *responseData) {
+                                                         [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
+                                                         
+                                                     } withFailureCompletionBlock:^(NSError *error) {
+                                                         [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
+                                                         [KeluAlertViewController showAlertControllerWithTitle:@"Error"
+                                                                                                       message:error.localizedDescription
+                                                                                             acceptActionTitle:@"OK"
+                                                                                             acceptActionBlock:nil
+                                                                                            dismissActionTitle:nil
+                                                                                            dismissActionBlock:nil
+                                                                                      presentingViewController:self];
+                                                     }];
+    }
+    else
+    {
+        [KeluAlertViewController showAlertControllerWithTitle:@"Error"
+                                                      message:@"Password and Confirm Password mistach"
+                                            acceptActionTitle:@"OK"
+                                            acceptActionBlock:^(UIAlertAction * _Nullable action) {
+                                                self.password.text = @"";
+                                                self.confirmPassword.text = @"";
+                                            }
+                                           dismissActionTitle:nil
+                                           dismissActionBlock:nil
+                                     presentingViewController:self];
+    }
 }
 
 #pragma mark - Delegates
@@ -111,6 +140,16 @@
     NSLog(@"%s", __FUNCTION__);
 }
 
+#pragma mark - Private Method
+
+- (NSMutableDictionary *)getUserRegisterParameters
+{
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [parameters setObject:[self.email text] forKey:@"email"];
+    [parameters setObject:[self.email text] forKey:@"username"];
+    [parameters setObject:[self.password text] forKey:@"password"];
+    return parameters;
+}
 
 
 @end
