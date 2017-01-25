@@ -18,7 +18,8 @@
     NSError *error;
     if(responseOperation.responseData)
         responseDic = [NSJSONSerialization JSONObjectWithData:responseOperation.responseData options:NSJSONReadingMutableContainers error:&error];
-
+     success(responseOperation.responseString);
+    /*
     //When the response is in Array example : For List of Activities
     if([responseDic isKindOfClass:[NSArray class]])
     {
@@ -81,6 +82,7 @@
     {
         success(responseOperation.responseString);
     }
+     */
 }
 
 +(void)fetchErrorFromResponseOperation:(AFHTTPRequestOperation *)responseOperation WithError:(NSError *)error WithfailureCompletionBlock:(void (^)(NSError *))failure

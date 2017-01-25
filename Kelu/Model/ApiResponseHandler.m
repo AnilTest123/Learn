@@ -107,4 +107,9 @@ static dispatch_once_t dispatchOnce;
     [self performHttpOperationWithType:@"POST" WithBaseURL:self.baseURL withEndPoint:@"createuser/" withParameteres:parameters SuccessCompletionBlock:success withFailureCompletionBlock:failure];
 }
 
+- (void)signInUserWith:(NSMutableDictionary *)parameters withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure
+{
+    [self performHttpOperationWithType:@"POST" WithBaseURL:self.baseURL withEndPoint:@"user/login/" withParameteres:parameters SuccessCompletionBlock:success withFailureCompletionBlock:failure];
+}
+
 @end

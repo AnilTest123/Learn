@@ -95,7 +95,10 @@
                                                      withSuccessCompletionBlock:^(NSString *responseData) {
                                                          [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
                                                          
+                                                         NSLog(@"%@",responseData);
+                                                         
                                                      } withFailureCompletionBlock:^(NSError *error) {
+                                                         
                                                          [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
                                                          [KeluAlertViewController showAlertControllerWithTitle:@"Error"
                                                                                                        message:error.localizedDescription

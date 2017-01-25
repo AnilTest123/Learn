@@ -109,6 +109,40 @@
 //    AppDelegate *delegate = ((AppDelegate*)[[UIApplication sharedApplication]delegate]);
 //    
 //    [delegate initiateContentViewController];
+    if ([[self.password text] length])
+    {
+        [KeluActivityIndicator showIndicator:self.view animated:YES];
+        [[ApiResponseHandler sharedApiResponseHandlerInstance] signInUserWith:[self getUserSignInParameters]
+                                                     withSuccessCompletionBlock:^(NSString *responseData) {
+                                                         [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
+                                                         
+                                                         NSLog(@"%@",responseData);
+                                                         
+                                                     } withFailureCompletionBlock:^(NSError *error) {
+                                                         
+                                                         [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
+                                                         [KeluAlertViewController showAlertControllerWithTitle:@"Error"
+                                                                                                       message:error.localizedDescription
+                                                                                             acceptActionTitle:@"OK"
+                                                                                             acceptActionBlock:nil
+                                                                                            dismissActionTitle:nil
+                                                                                            dismissActionBlock:nil
+                                                                                      presentingViewController:self];
+                                                     }];
+    }
+    else
+    {
+        [KeluAlertViewController showAlertControllerWithTitle:@"Error"
+                                                      message:@"Enter username and password"
+                                            acceptActionTitle:@"OK"
+                                            acceptActionBlock:^(UIAlertAction * _Nullable action) {
+                                                self.password.text = @"";
+                                            }
+                                           dismissActionTitle:nil
+                                           dismissActionBlock:nil
+                                     presentingViewController:self];
+    }
+
 }
 
 #pragma mark Forgot Password Button
@@ -150,4 +184,12 @@
     NSLog(@"%s", __FUNCTION__);
 }
 
+#pragma mark - Get Params
+- (NSMutableDictionary *)getUserSignInParameters
+{
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [parameters setObject:[self.email text] forKey:@"username"];
+    [parameters setObject:[self.password text] forKey:@"password"];
+    return parameters;
+}
 @end

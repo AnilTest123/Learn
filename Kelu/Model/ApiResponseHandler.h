@@ -24,5 +24,6 @@
 #pragma mark Register User
 -(void)registerUserWith:(NSMutableDictionary*)user withSuccessCompletionBlock:(void(^)(NSString*responseData))success
 withFailureCompletionBlock:(void(^)(NSError*error))failure;
+- (void)signInUserWith:(NSMutableDictionary *)parameters withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure;
 
 @end
