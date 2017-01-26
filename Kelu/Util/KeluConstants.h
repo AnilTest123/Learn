@@ -15,3 +15,4 @@ static NSInteger const kUnsupportedURLError = -1002;
 #define kKeychainHasLoggedIn @"HasLoggedIn"
 #define kKeychainSelectedLanguageKey @"SelectedLanguageKey"
 #define kKeychainSelectedLanguageName @"SelectedLanguageName"
+#define kKeychainSelectedThemeTag @"SelectedThemeTag"

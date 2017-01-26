@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface KeluViewController : UIViewController
-{
-    BOOL refreshRequired;
-}
+
+@property (nonatomic) BOOL refreshRequired;
+
+#pragma mark - Initialization
+
+- (void)initialize;
 
 @end

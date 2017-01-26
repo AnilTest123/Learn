@@ -1,29 +1,29 @@
 //
-//  LanguageTableView.m
+//  ThemeTableView.m
 //  Kelu
 //
 //  Created by Nagarajan SD on 26/01/17.
 //  Copyright © 2017 Anil Chopra. All rights reserved.
 //
 
-#import "LanguageTableView.h"
-#import "LanguageCell.h"
+#import "ThemeTableView.h"
+#import "ThemeCell.h"
 
-@interface LanguageTableView ()<UITableViewDelegate, UITableViewDataSource>
+@interface ThemeTableView () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
-@implementation LanguageTableView
+@implementation ThemeTableView
 
 #pragma mark - Life Cycle Method
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    [ViewCustomEffect setBorderForView:self borderWidth:0.5f color:[UIColor lightGrayColor]];
     self.dataSource = self;
     self.delegate = self;
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -44,13 +44,13 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [_languages count];
+    return [_themes count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LanguageCell *cell = (LanguageCell *)[tableView dequeueReusableCellWithIdentifier:@"LanguageCell"];
-    [cell updateCellUIWithLangugeModel:(LanguageModel *)[_languages objectAtIndex:indexPath.section]];
+    ThemeCell *cell = (ThemeCell *)[tableView dequeueReusableCellWithIdentifier:@"ThemeCell"];
+    [cell updateCellUIWithThemeModel:(ThemeModel *)[_themes objectAtIndex:indexPath.section]];
     return cell;
 }
 
@@ -58,7 +58,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 100;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -66,30 +66,26 @@
     return 2.5f;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellDividerView"];
-    return cell.contentView;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LanguageCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    LanguageModel *languageModel = [cell getLanguageModel];
-    if ([_languageDelegate respondsToSelector:@selector(setSelectedLanguage:)])
+    ThemeCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    ThemeModel *themeModel = [cell getThemeModel];
+    if ([_themeDelegate respondsToSelector:@selector(setSelectedTheme:)])
     {
-        [_languageDelegate setSelectedLanguage:languageModel];
+        [_themeDelegate setSelectedTheme:themeModel];
     }
+    
 }
 
 #pragma mark - Setter method
 
-- (void)setLanguages:(NSArray *)languages
+- (void)setThemes:(NSArray *)themes
 {
-    _languages = languages;
+    _themes = themes;
     dispatch_async(dispatch_get_main_queue(), ^{
         [self reloadData];
     });
 }
+
 
 @end
