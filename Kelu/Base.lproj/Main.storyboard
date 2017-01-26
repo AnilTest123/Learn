@@ -370,7 +370,7 @@
         <!--Home-->
         <scene sceneID="24X-WL-rEg">
             <objects>
-                <viewController storyboardIdentifier="ContentViewController" id="vRe-1W-owu" customClass="ContentViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="vRe-1W-owu" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vyT-D4-stx"/>
                         <viewControllerLayoutGuide type="bottom" id="Xxh-PM-N5D"/>
@@ -531,7 +531,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npp-gq-uad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-170" y="730"/>
+            <point key="canvasLocation" x="358" y="715"/>
         </scene>
         <!--My Stuff-->
         <scene sceneID="fMP-vA-5XU">
@@ -569,7 +569,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEV-4R-IbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1665" y="817"/>
+            <point key="canvasLocation" x="-1785" y="1093"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DOe-4f-KX0">

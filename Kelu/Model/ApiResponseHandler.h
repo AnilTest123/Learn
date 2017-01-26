@@ -26,4 +26,6 @@
 withFailureCompletionBlock:(void(^)(NSError*error))failure;
 - (void)signInUserWith:(NSMutableDictionary *)parameters withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure;
 
+#pragma mark - Text
+- (void)fetchTextWithParams:(NSMutableDictionary *)parameters withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure;
 @end

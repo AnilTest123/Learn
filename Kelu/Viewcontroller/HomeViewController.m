@@ -6,20 +6,21 @@
 //  Copyright © 2016 Anil Chopra. All rights reserved.
 //
 
-#import "ContentViewController.h"
+#import "HomeViewController.h"
 #import "ApiResponseHandler.h"
 #import "KeluActivityIndicator.h"
 #import "JsonTest.h"
 #import "CHTumblrMenuView.h"
+#import "TextsResponse.h"
 
-@interface ContentViewController ()
+@interface HomeViewController ()
 {
-    NSMutableArray *jsonTestArray;
     NSIndexPath *selectedIndexPath;
+    TextsResponse *textsResponse;
 }
 @end
 
-@implementation ContentViewController
+@implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,8 +33,7 @@
     NSMutableArray *myArray = [[NSMutableArray alloc] init];
     NSNumber  *myNumber = [NSNumber numberWithFloat:10];
     [myArray addObject:myNumber];
-    [self fetchTestData];
-    [self testPerformance];
+    [self fetchDataForTheme];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,30 +63,34 @@
 }
 
 #pragma mark - Fetch
--(void)fetchTestData
+
+-(void)fetchDataForTheme
 {
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    NSString *myFile = [mainBundle pathForResource: @"JsonContent" ofType: @"json"];
-    NSString* fileContents =[NSString stringWithContentsOfFile:myFile encoding:NSUTF8StringEncoding error:NULL];
-    NSError *error;
-    NSArray *jsonObject = (NSArray *)[NSJSONSerialization
-                                      JSONObjectWithData:[fileContents dataUsingEncoding:NSUTF8StringEncoding]
-                                      options:0 error:&error];
-    
-    jsonTestArray = [JsonTest arrayOfModelsFromDictionaries:jsonObject error:nil];
-    [self.tableView reloadData];
+    [KeluActivityIndicator showIndicator:self.view animated:YES];
+    [[ApiResponseHandler sharedApiResponseHandlerInstance] fetchTextWithParams:[self getTextParameters]
+        withSuccessCompletionBlock:^(NSString *responseString) {
+            
+            [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
+            textsResponse = [[TextsResponse alloc] initWithString:responseString error:nil];
+            NSLog(@"%@",responseString);
+            [self reload];
+            
+        } withFailureCompletionBlock:^(NSError *error) {
+                                                   
+            [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
+            [KeluAlertViewController showAlertControllerWithTitle:@"Error"                                                                                                 message:error.localizedDescription acceptActionTitle:@"OK"                                    acceptActionBlock:nil dismissActionTitle:nil dismissActionBlock:nil presentingViewController:self];
+    }];
 }
 
-#pragma mark - Performance
--(void)testPerformance
+#pragma mark - Parameters
+-(NSMutableDictionary*)getTextParameters
 {
-//    NSInteger total = 0;
-//    for (int i=0; i<100000; i++)
-//    {
-//        NSNumber *num = [NSNumber numberWithInt:i];
-//        total = num.integerValue + total;
-//    }
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [parameters setObject:@"TAG00001" forKey:@"tag_code"];
+    [parameters setObject:@"KA" forKey:@"dest_lan_key"];
+    return parameters;
 }
+
 #pragma mark - Table View
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -96,7 +100,7 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [jsonTestArray count];
+    return [textsResponse.TextsResponse count];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,7 +113,7 @@
     NSString *CellIdentifier = @"ContentTableViewCell";
     ContentTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     cell.delegate = self;
-    cell.jsonObj = [jsonTestArray objectAtIndex:indexPath.section];
+    cell.textModel = [textsResponse.TextsResponse objectAtIndex:indexPath.section];
     cell.bottomView.hidden = YES;
     cell.bottomViewHeight.constant = 0;
     
@@ -131,6 +135,13 @@
     return indexPath;
 }
 
+#pragma mark Reload
+-(void)reload
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+}
 #pragma mark - Delegates
 -(void)tappedOnShareForObject:(JsonTest *)obj
 {

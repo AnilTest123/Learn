@@ -11,18 +11,18 @@
 @implementation ContentTableViewCell
 
 
--(void)setJsonObj:(JsonTest *)jsonObj
+-(void)setTextModel:(TextModel *)textModel
 {
-    _jsonObj = jsonObj;
+    _textModel = textModel;
     [self setValues];
 }
 
 #pragma mark - Text Initialization
 -(void)setValues
 {
-    self.text.text = _jsonObj.title;
-    self.translatedText.text = _jsonObj.body;
-    self.themeNames.text = _jsonObj.theme;
+    self.text.text = _textModel.text;
+    //self.translatedText.text = _jsonObj.body;
+    //self.themeNames.text = _jsonObj.theme;
     [self setNeedsDisplay];
 }
 
@@ -37,7 +37,7 @@
 - (IBAction)shareButtonPressed:(id)sender {
     if([_delegate respondsToSelector:@selector(tappedOnShareForObject:)])
     {
-        [_delegate tappedOnShareForObject:_jsonObj];
+        [_delegate tappedOnShareForObject:_textModel];
     }
 }
 

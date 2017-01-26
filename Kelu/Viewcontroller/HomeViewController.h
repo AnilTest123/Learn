@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ContentTableViewCell.h"
 
-@interface ContentViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,ContentTableViewCellDelegate>
+@interface HomeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,ContentTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 

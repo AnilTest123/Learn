@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JsonTest.h"
+#import "TextModel.h"
 
 @protocol ContentTableViewCellDelegate <NSObject>
 
--(void)tappedOnShareForObject:(JsonTest*)obj;
+-(void)tappedOnShareForObject:(TextModel*)obj;
 
 @end
 
@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *themeNames;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewHeight;
-@property(nonatomic,strong)JsonTest *jsonObj;
+@property(nonatomic,strong)TextModel *textModel;
 @property (weak, nonatomic) id<ContentTableViewCellDelegate> delegate;
 
 - (IBAction)playButtonPressed:(id)sender;

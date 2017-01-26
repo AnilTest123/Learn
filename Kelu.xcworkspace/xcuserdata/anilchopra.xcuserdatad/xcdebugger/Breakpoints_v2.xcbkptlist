@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Kelu/Viewcontroller/LoginViewController.m"
-            timestampString = "507108598.289207"
+            filePath = "Kelu/Viewcontroller/HomeViewController.m"
+            timestampString = "507112561.645453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "-signInButtonPressed:"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "-fetchDataForTheme"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
