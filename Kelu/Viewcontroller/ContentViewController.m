@@ -58,11 +58,8 @@
 #pragma mark - Show Menu
 - (void)showMenu:(id)sender {
     
-    [self.view endEditing:YES];
-    [self.frostedViewController.view endEditing:YES];
+    //[self.view endEditing:YES];
     
-    //Present the view controller
-    [self.frostedViewController presentMenuViewController];
 }
 
 #pragma mark - Fetch
@@ -83,12 +80,12 @@
 #pragma mark - Performance
 -(void)testPerformance
 {
-    NSInteger total = 0;
-    for (int i=0; i<100000; i++)
-    {
-        NSNumber *num = [NSNumber numberWithInt:i];
-        total = num.integerValue + total;
-    }
+//    NSInteger total = 0;
+//    for (int i=0; i<100000; i++)
+//    {
+//        NSNumber *num = [NSNumber numberWithInt:i];
+//        total = num.integerValue + total;
+//    }
 }
 #pragma mark - Table View
 

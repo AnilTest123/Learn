@@ -28,7 +28,7 @@
     NSInteger statusCode = responseOperation.response.statusCode;
     if(statusCode == kUnauthorizedRequest) {
         {
-            failure(nil);
+            failure([self getErrorForUnauthorised]);
             return;
         }
         //[[NSNotificationCenter defaultCenter] postNotificationName:@"UnauthorizedRequest" object:nil];
@@ -100,5 +100,13 @@
         else
             failure(error);
     }
+}
+
++(NSError*)getErrorForUnauthorised
+{
+    NSMutableDictionary* details = [NSMutableDictionary dictionary];
+    [details setValue:@"Unauthorized" forKey:NSLocalizedDescriptionKey];
+    NSError* newError = [NSError errorWithDomain:@"Error" code:401 userInfo:details];
+    return newError;
 }
 @end

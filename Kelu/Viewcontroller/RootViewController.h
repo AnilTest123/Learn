@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "REFrostedViewController.h"
 
-@interface RootViewController : REFrostedViewController<REFrostedViewControllerDelegate>
+@interface RootViewController : UINavigationController
 
 @end

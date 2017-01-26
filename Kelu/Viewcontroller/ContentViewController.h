@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "REFrostedViewController.h"
 #import "ContentTableViewCell.h"
 
 @interface ContentViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,ContentTableViewCellDelegate>

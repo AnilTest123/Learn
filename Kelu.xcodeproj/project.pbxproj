@@ -19,6 +19,8 @@
 		C049B24F1D2969D1007EE171 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C049B24E1D2969D1007EE171 /* CALayer+UIColor.m */; };
 		C049B2521D2AC3C5007EE171 /* CHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C049B2511D2AC3C5007EE171 /* CHViewController.m */; };
 		C049B25A1D2AC414007EE171 /* CHTumblrMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C049B2591D2AC414007EE171 /* CHTumblrMenuView.m */; };
+		C0A1586E1E39D1B3006D6BB3 /* KKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1586B1E39D1B3006D6BB3 /* KKeyChain.m */; };
+		C0A1586F1E39D1B3006D6BB3 /* JNKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1586D1E39D1B3006D6BB3 /* JNKeychain.m */; };
 		C0FF7EBC1D279988005FD479 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7EBB1D279988005FD479 /* main.m */; };
 		C0FF7EBF1D279988005FD479 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7EBE1D279988005FD479 /* AppDelegate.m */; };
 		C0FF7EC51D279988005FD479 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0FF7EC31D279988005FD479 /* Main.storyboard */; };
@@ -30,7 +32,6 @@
 		C0FF7EF31D27D2D3005FD479 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7EF21D27D2D3005FD479 /* LoginViewController.m */; };
 		C0FF7EF91D27D915005FD479 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7EF81D27D915005FD479 /* RootViewController.m */; };
 		C0FF7EFC1D27DE62005FD479 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7EFB1D27DE62005FD479 /* NavigationController.m */; };
-		C0FF7EFF1D27E635005FD479 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7EFE1D27E635005FD479 /* MenuViewController.m */; };
 		C0FF7F041D27EEA2005FD479 /* MenuTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F031D27EEA2005FD479 /* MenuTitleTableViewCell.m */; };
 		C0FF7F071D27F462005FD479 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F061D27F462005FD479 /* ContentViewController.m */; };
 		C0FF7F0A1D28B93B005FD479 /* ApiResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F091D28B93B005FD479 /* ApiResponseHandler.m */; };
@@ -83,6 +84,10 @@
 		C049B2511D2AC3C5007EE171 /* CHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHViewController.m; sourceTree = "<group>"; };
 		C049B2581D2AC414007EE171 /* CHTumblrMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTumblrMenuView.h; sourceTree = "<group>"; };
 		C049B2591D2AC414007EE171 /* CHTumblrMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTumblrMenuView.m; sourceTree = "<group>"; };
+		C0A1586A1E39D1B3006D6BB3 /* KKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKeyChain.h; sourceTree = "<group>"; };
+		C0A1586B1E39D1B3006D6BB3 /* KKeyChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKeyChain.m; sourceTree = "<group>"; };
+		C0A1586C1E39D1B3006D6BB3 /* JNKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNKeychain.h; sourceTree = "<group>"; };
+		C0A1586D1E39D1B3006D6BB3 /* JNKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNKeychain.m; sourceTree = "<group>"; };
 		C0FF7EB71D279988005FD479 /* Kelu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kelu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FF7EBB1D279988005FD479 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C0FF7EBD1D279988005FD479 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,8 +109,6 @@
 		C0FF7EF81D27D915005FD479 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = Viewcontroller/RootViewController.m; sourceTree = "<group>"; };
 		C0FF7EFA1D27DE62005FD479 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationController.h; path = Viewcontroller/NavigationController.h; sourceTree = "<group>"; };
 		C0FF7EFB1D27DE62005FD479 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationController.m; path = Viewcontroller/NavigationController.m; sourceTree = "<group>"; };
-		C0FF7EFD1D27E635005FD479 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = Viewcontroller/MenuViewController.h; sourceTree = "<group>"; };
-		C0FF7EFE1D27E635005FD479 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = Viewcontroller/MenuViewController.m; sourceTree = "<group>"; };
 		C0FF7F021D27EEA2005FD479 /* MenuTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuTitleTableViewCell.h; path = View/Menu/MenuTitleTableViewCell.h; sourceTree = "<group>"; };
 		C0FF7F031D27EEA2005FD479 /* MenuTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuTitleTableViewCell.m; path = View/Menu/MenuTitleTableViewCell.m; sourceTree = "<group>"; };
 		C0FF7F051D27F462005FD479 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentViewController.h; path = Viewcontroller/ContentViewController.h; sourceTree = "<group>"; };
@@ -249,6 +252,18 @@
 			name = Category;
 			sourceTree = "<group>";
 		};
+		C0A158691E39D1B3006D6BB3 /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				C0A1586A1E39D1B3006D6BB3 /* KKeyChain.h */,
+				C0A1586B1E39D1B3006D6BB3 /* KKeyChain.m */,
+				C0A1586C1E39D1B3006D6BB3 /* JNKeychain.h */,
+				C0A1586D1E39D1B3006D6BB3 /* JNKeychain.m */,
+			);
+			name = KeyChain;
+			path = Util/KeyChain;
+			sourceTree = "<group>";
+		};
 		C0FF7EAE1D279988005FD479 = {
 			isa = PBXGroup;
 			children = (
@@ -327,8 +342,6 @@
 				C0FF7EF81D27D915005FD479 /* RootViewController.m */,
 				C0FF7EFA1D27DE62005FD479 /* NavigationController.h */,
 				C0FF7EFB1D27DE62005FD479 /* NavigationController.m */,
-				C0FF7EFD1D27E635005FD479 /* MenuViewController.h */,
-				C0FF7EFE1D27E635005FD479 /* MenuViewController.m */,
 				C0FF7F051D27F462005FD479 /* ContentViewController.h */,
 				C0FF7F061D27F462005FD479 /* ContentViewController.m */,
 			);
@@ -368,6 +381,7 @@
 		C0FF7F0C1D28C09E005FD479 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				C0A158691E39D1B3006D6BB3 /* KeyChain */,
 				C049B24C1D2969AC007EE171 /* Category */,
 				C0FF7F0D1D28C0B8005FD479 /* ErrorHandler.h */,
 				C0FF7F0E1D28C0B8005FD479 /* ErrorHandler.m */,
@@ -593,9 +607,9 @@
 				C049B24F1D2969D1007EE171 /* CALayer+UIColor.m in Sources */,
 				C0FF7EFC1D27DE62005FD479 /* NavigationController.m in Sources */,
 				C0FF7EBC1D279988005FD479 /* main.m in Sources */,
-				C0FF7EFF1D27E635005FD479 /* MenuViewController.m in Sources */,
 				C0FF7F041D27EEA2005FD479 /* MenuTitleTableViewCell.m in Sources */,
 				C0FF7F211D28F856005FD479 /* ContentTableViewCell.m in Sources */,
+				C0A1586F1E39D1B3006D6BB3 /* JNKeychain.m in Sources */,
 				C0FF7F1D1D28E236005FD479 /* JsonTestData.m in Sources */,
 				C0FF7EF31D27D2D3005FD479 /* LoginViewController.m in Sources */,
 				C0FF7F0A1D28B93B005FD479 /* ApiResponseHandler.m in Sources */,
@@ -604,6 +618,7 @@
 				C0FF7EF91D27D915005FD479 /* RootViewController.m in Sources */,
 				61460BA11E37D90B000CC92F /* SocialNetworkingView.m in Sources */,
 				611B615E1E391015002AD82F /* UIColor+More.m in Sources */,
+				C0A1586E1E39D1B3006D6BB3 /* KKeyChain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

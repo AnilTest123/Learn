@@ -16,12 +16,7 @@
 
 - (void)awakeFromNib
 {
-    self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"NavigationController"];
-    self.delegate = self;
-    self.menuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
-    
-    CGRect bounds = [self resizeForLandscapeViewIfAny];
-    self.menuViewSize = CGSizeMake(MENU_WIDTH, bounds.size.height);
+    [super awakeFromNib];
 }
 
 -(CGRect)resizeForLandscapeViewIfAny{
@@ -32,9 +27,4 @@
     return bounds;
 }
 
--(void)frostedViewController:(REFrostedViewController *)frostedViewController didShowMenuViewController:(UIViewController *)menuViewController
-{
-    CGRect bounds = [self resizeForLandscapeViewIfAny];
-    [self resizeMenuViewControllerToSize:CGSizeMake(MENU_WIDTH, bounds.size.height)];
-}
 @end

@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self instantiateViewController];
     return YES;
 }
 
@@ -74,7 +75,72 @@
 
 -(NSString*)rootViewController{
     
-    return @"RootViewController";
+    if ([(NSString*)[KKeyChain loadKeyChainValueForKey:kKeychainHasLoggedIn] isEqualToString:@"YES"])
+    {
+        return @"NavigationController";
+    }
+    else
+    {
+        [self reset];
+        return @"SignUpNavigationController";
+    }
+}
+
+#pragma mark Rest
+-(void)reset
+{
+    [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+    [self deleteAllKeychain];
+    [self clearCoreData];
+    [self deleteCookies];
+    [ApiResponseHandler resetSharedInstance];
+    NSString *domainName = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:domainName];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] setValue:@"1strun" forKey:@"FirstRun"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+#pragma mark - Delete
+-(void)deleteAllKeychain
+{
+    //[self.keychainItemWrapper resetKeychainItem];
+    [self resetKeychain];
+    [KKeyChain saveKeyChainValue:@"NO" forKey:kKeychainHasLoggedIn];
+}
+
+-(void)resetKeychain {
+    [self deleteAllKeysForSecClass:kSecClassGenericPassword];
+    [self deleteAllKeysForSecClass:kSecClassInternetPassword];
+    [self deleteAllKeysForSecClass:kSecClassCertificate];
+    [self deleteAllKeysForSecClass:kSecClassKey];
+    [self deleteAllKeysForSecClass:kSecClassIdentity];
+}
+
+-(void)deleteAllKeysForSecClass:(CFTypeRef)secClass {
+    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    [dict setObject:(__bridge id)secClass forKey:(__bridge id)kSecClass];
+    SecItemDelete((__bridge CFDictionaryRef) dict);
+}
+
+-(void)deleteCookies
+{
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [storage cookies]) {
+        [storage deleteCookie:cookie];
+    }
+}
+-(void)clearCoreData
+{
+    NSArray *stores = [self.persistentStoreCoordinator persistentStores];
+    
+    for(NSPersistentStore *store in stores) {
+        [self.persistentStoreCoordinator removePersistentStore:store error:nil];
+        [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];
+    }
+    _persistentStoreCoordinator = nil;
+    _managedObjectContext = nil;
 }
 
 #pragma mark - Core Data stack
