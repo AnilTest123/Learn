@@ -74,10 +74,7 @@
 {
     [KKeyChain saveKeyChainValue:language.lan_key forKey:kKeychainSelectedLanguageKey];
     [KKeyChain saveKeyChainValue:language.language forKey:kKeychainSelectedLanguageName];
-    if ([_delegate respondsToSelector:@selector(languageSuccessfullySelected)])
-    {
-        [_delegate languageSuccessfullySelected];
-    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:keluHeaderViewUpdateNotification object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

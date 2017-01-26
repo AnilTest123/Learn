@@ -8,14 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol LanguageViewControllerDelegate <NSObject>
-
-- (void)languageSuccessfullySelected;
-
-@end
-
 @interface LanguageViewController : UIViewController
-
-@property (nonatomic, weak) id<LanguageViewControllerDelegate> delegate;
 
 @end

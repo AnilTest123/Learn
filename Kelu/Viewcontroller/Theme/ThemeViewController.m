@@ -64,10 +64,10 @@
 - (void)initialize
 {
     [super initialize];
-    [self initializeLanguageTableView];
+    [self initializeThemeTableView];
 }
 
-- (void)initializeLanguageTableView
+- (void)initializeThemeTableView
 {
     self.themeTableView.themeDelegate = self;
 }
@@ -78,9 +78,10 @@
 
 - (void)setSelectedTheme:(ThemeModel *)theme
 {
-    [KKeyChain saveKeyChainValue:theme.tag forKey:kKeychainSelectedThemeTag];
+    [KKeyChain saveKeyChainValue:theme.tag_code forKey:kKeychainSelectedThemeTag];
+    [[NSNotificationCenter defaultCenter] postNotificationName:keluHeaderViewUpdateNotification object:nil];
+    [self.tabBarController setSelectedIndex:2];
 }
-
 
 #pragma mark - Fetch
 
@@ -88,17 +89,17 @@
 {
     [KeluActivityIndicator showIndicator:self.view animated:YES];
     [[ApiResponseHandler sharedApiResponseHandlerInstance] fetchThemesWithParams:[self getTextParameters]
-                                                    withSuccessCompletionBlock:^(NSString *responseString) {
-                                                        
-                                                        [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
-                                                        themeResponse = [[ThemeResponse alloc] initWithString:responseString error:nil];
-                                                        [self reload];
-                                                        
-                                                    } withFailureCompletionBlock:^(NSError *error) {
-                                                        
-                                                        [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
-                                                        [KeluAlertViewController showAlertControllerWithTitle:@"Error"                                                                                                 message:error.localizedDescription acceptActionTitle:@"OK"                                    acceptActionBlock:nil dismissActionTitle:nil dismissActionBlock:nil presentingViewController:self];
-                                                    }];
+        withSuccessCompletionBlock:^(NSString *responseString) {
+            
+            [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
+            themeResponse = [[ThemeResponse alloc] initWithString:responseString error:nil];
+            [self reload];
+            
+        } withFailureCompletionBlock:^(NSError *error) {
+            
+            [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
+            [KeluAlertViewController showAlertControllerWithTitle:@"Error"                                                                                                 message:error.localizedDescription acceptActionTitle:@"OK"                                    acceptActionBlock:nil dismissActionTitle:nil dismissActionBlock:nil presentingViewController:self];
+        }];
 }
 
 #pragma mark - Parameters

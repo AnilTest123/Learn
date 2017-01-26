@@ -38,6 +38,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self initialize];
     if (self.refreshRequired)
     {
         self.refreshRequired = NO;
@@ -55,8 +56,21 @@
 - (void)initialize
 {
     [super initialize];
+    [self addThemeChangeNotification];
 }
 
+- (void)addThemeChangeNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadHomeView)
+                                                 name:keluThemeChangeNotification
+                                               object:nil];
+}
+
+- (void)reloadHomeView
+{
+    self.refreshRequired = YES;
+}
 
 #pragma mark - Fetch
 
@@ -81,7 +95,7 @@
 -(NSMutableDictionary*)getTextParameters
 {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] initWithCapacity:0];
-    [parameters setObject:@"TAG00001" forKey:@"tag_code"];
+    [parameters setObject:[KKeyChain loadKeyChainValueForKey:kKeychainSelectedThemeTag] forKey:@"tag_code"];
     [parameters setObject:[KKeyChain loadKeyChainValueForKey:kKeychainSelectedLanguageKey] forKey:@"dest_lan_key"];
     return parameters;
 }

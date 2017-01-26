@@ -10,7 +10,7 @@
 #import "HeaderView.h"
 #import "LanguageViewController.h"
 
-@interface KeluViewController () <HeaderViewDelegate, LanguageViewControllerDelegate>
+@interface KeluViewController () <HeaderViewDelegate>
 {
     HeaderView *hView;
 }
@@ -40,6 +40,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initialize];
+    [self initializePrivate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,8 +63,16 @@
 
 - (void)initialize
 {
+    
+}
+
+#pragma mark - Private Initialization
+
+- (void)initializePrivate
+{
     [self initializeVariable];
     [self initializeHeaderView];
+    [self addHeaderViewReloadNotification];
 }
 
 - (void)initializeVariable
@@ -78,20 +87,27 @@
     [self.headerView addSubview:hView];
 }
 
+- (void)addHeaderViewReloadNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadHeaderView)
+                                                 name:keluHeaderViewUpdateNotification
+                                               object:nil];
+}
+
+- (void)reloadHeaderView
+{
+    _refreshRequired = YES;
+    [hView reloadHeaderView];
+}
+
+
 #pragma mark - Delegate
 
 #pragma mark HeaderView Delegate
 - (void)languageButtonPressed
 {
     [self navigateToLanguageViewControllerWithAnimated:YES];
-}
-
-#pragma mark LanguageView Controller Deleage
-
-- (void)languageSuccessfullySelected
-{
-    [hView reloadHeaderView];
-    _refreshRequired = YES;
 }
 
 #pragma mark - Navigation / Push
@@ -102,7 +118,6 @@
 {
     LanguageViewController* languageViewController =
     [self.storyboard instantiateViewControllerWithIdentifier:@"LanguageViewController"];
-    languageViewController.delegate = self;
     languageViewController.hidesBottomBarWhenPushed = YES;
     if([self.navigationController respondsToSelector:@selector(showViewController:sender:)])
         [self.navigationController showViewController:languageViewController sender:self];
