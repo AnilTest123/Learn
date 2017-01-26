@@ -30,6 +30,7 @@
 		61D778001E3A4CB0000A0088 /* ThemeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D777FF1E3A4CB0000A0088 /* ThemeModel.m */; };
 		61D778031E3A4D1E000A0088 /* ThemeResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D778021E3A4D1E000A0088 /* ThemeResponse.m */; };
 		61D778071E3A616F000A0088 /* MyStuffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D778061E3A616F000A0088 /* MyStuffViewController.m */; };
+		61D7780B1E3A7447000A0088 /* HomeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D7780A1E3A7447000A0088 /* HomeTableView.m */; };
 		63F54EACDCDD35105E995035 /* libPods-Kelu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 782D82A9B0C6388151854D49 /* libPods-Kelu.a */; };
 		C049B24F1D2969D1007EE171 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C049B24E1D2969D1007EE171 /* CALayer+UIColor.m */; };
 		C049B2521D2AC3C5007EE171 /* CHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C049B2511D2AC3C5007EE171 /* CHViewController.m */; };
@@ -54,7 +55,7 @@
 		C0FF7F0F1D28C0B8005FD479 /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F0E1D28C0B8005FD479 /* ErrorHandler.m */; };
 		C0FF7F1A1D28DFF6005FD479 /* JsonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F191D28DFF6005FD479 /* JsonTest.m */; };
 		C0FF7F1D1D28E236005FD479 /* JsonTestData.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F1C1D28E236005FD479 /* JsonTestData.m */; };
-		C0FF7F211D28F856005FD479 /* ContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F201D28F856005FD479 /* ContentTableViewCell.m */; };
+		C0FF7F211D28F856005FD479 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7F201D28F856005FD479 /* HomeCell.m */; };
 		C0FF7F231D294507005FD479 /* JsonContent.json in Resources */ = {isa = PBXBuildFile; fileRef = C0FF7F221D294507005FD479 /* JsonContent.json */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +122,8 @@
 		61D778021E3A4D1E000A0088 /* ThemeResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeResponse.m; path = Model/JSONModel/ThemeResponse.m; sourceTree = "<group>"; };
 		61D778051E3A616F000A0088 /* MyStuffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyStuffViewController.h; path = "Viewcontroller/My Stuff/MyStuffViewController.h"; sourceTree = "<group>"; };
 		61D778061E3A616F000A0088 /* MyStuffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyStuffViewController.m; path = "Viewcontroller/My Stuff/MyStuffViewController.m"; sourceTree = "<group>"; };
+		61D778091E3A7447000A0088 /* HomeTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTableView.h; path = Viewcontroller/Home/Views/HomeTableView.h; sourceTree = "<group>"; };
+		61D7780A1E3A7447000A0088 /* HomeTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeTableView.m; path = Viewcontroller/Home/Views/HomeTableView.m; sourceTree = "<group>"; };
 		782D82A9B0C6388151854D49 /* libPods-Kelu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Kelu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49F8E18B62DD887A9CF4830 /* Pods-Kelu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kelu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kelu/Pods-Kelu.release.xcconfig"; sourceTree = "<group>"; };
 		C049B24D1D2969D1007EE171 /* CALayer+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CALayer+UIColor.h"; path = "Util/Category/CALayer+UIColor.h"; sourceTree = "<group>"; };
@@ -170,8 +173,8 @@
 		C0FF7F191D28DFF6005FD479 /* JsonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JsonTest.m; path = Model/JsonTest.m; sourceTree = "<group>"; };
 		C0FF7F1B1D28E236005FD479 /* JsonTestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JsonTestData.h; path = Model/JsonTestData.h; sourceTree = "<group>"; };
 		C0FF7F1C1D28E236005FD479 /* JsonTestData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JsonTestData.m; path = Model/JsonTestData.m; sourceTree = "<group>"; };
-		C0FF7F1F1D28F856005FD479 /* ContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentTableViewCell.h; path = View/ContentView/ContentTableViewCell.h; sourceTree = "<group>"; };
-		C0FF7F201D28F856005FD479 /* ContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContentTableViewCell.m; path = View/ContentView/ContentTableViewCell.m; sourceTree = "<group>"; };
+		C0FF7F1F1D28F856005FD479 /* HomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeCell.h; path = View/ContentView/HomeCell.h; sourceTree = "<group>"; };
+		C0FF7F201D28F856005FD479 /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeCell.m; path = View/ContentView/HomeCell.m; sourceTree = "<group>"; };
 		C0FF7F221D294507005FD479 /* JsonContent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = JsonContent.json; path = Util/JsonContent.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -274,6 +277,7 @@
 		61D777D31E3A08B1000A0088 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				61D778081E3A741F000A0088 /* Views */,
 				C0FF7F051D27F462005FD479 /* HomeViewController.h */,
 				C0FF7F061D27F462005FD479 /* HomeViewController.m */,
 			);
@@ -357,6 +361,17 @@
 				61D778061E3A616F000A0088 /* MyStuffViewController.m */,
 			);
 			name = MyStuff;
+			sourceTree = "<group>";
+		};
+		61D778081E3A741F000A0088 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C0FF7F1F1D28F856005FD479 /* HomeCell.h */,
+				C0FF7F201D28F856005FD479 /* HomeCell.m */,
+				61D778091E3A7447000A0088 /* HomeTableView.h */,
+				61D7780A1E3A7447000A0088 /* HomeTableView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		91687C17FF053691BAB9B24D /* Pods */ = {
@@ -518,7 +533,6 @@
 				611B61551E390EAA002AD82F /* Spinner */,
 				611B61541E390E93002AD82F /* TumblrMenu */,
 				61460B9E1E37D8D5000CC92F /* SocialNetworking */,
-				C0FF7F1E1D28F82C005FD479 /* ContentViewCell */,
 				C0FF7F011D27EE72005FD479 /* Menu */,
 			);
 			name = View;
@@ -566,15 +580,6 @@
 				C0FF7F1C1D28E236005FD479 /* JsonTestData.m */,
 			);
 			name = "New Group";
-			sourceTree = "<group>";
-		};
-		C0FF7F1E1D28F82C005FD479 /* ContentViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				C0FF7F1F1D28F856005FD479 /* ContentTableViewCell.h */,
-				C0FF7F201D28F856005FD479 /* ContentTableViewCell.m */,
-			);
-			name = ContentViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -784,7 +789,7 @@
 				61D777FA1E3A49EC000A0088 /* ThemeTableView.m in Sources */,
 				C0FF7EBC1D279988005FD479 /* main.m in Sources */,
 				C0FF7F041D27EEA2005FD479 /* MenuTitleTableViewCell.m in Sources */,
-				C0FF7F211D28F856005FD479 /* ContentTableViewCell.m in Sources */,
+				C0FF7F211D28F856005FD479 /* HomeCell.m in Sources */,
 				C0A1586F1E39D1B3006D6BB3 /* JNKeychain.m in Sources */,
 				C0FF7F1D1D28E236005FD479 /* JsonTestData.m in Sources */,
 				C0FF7EF31D27D2D3005FD479 /* LoginViewController.m in Sources */,
@@ -796,6 +801,7 @@
 				611B61621E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.m in Sources */,
 				C049B25A1D2AC414007EE171 /* CHTumblrMenuView.m in Sources */,
 				61460BA11E37D90B000CC92F /* SocialNetworkingView.m in Sources */,
+				61D7780B1E3A7447000A0088 /* HomeTableView.m in Sources */,
 				C0A158771E39E80A006D6BB3 /* TextModel.m in Sources */,
 				61D777D71E3A0976000A0088 /* KeluViewController.m in Sources */,
 				611B615E1E391015002AD82F /* UIColor+More.m in Sources */,

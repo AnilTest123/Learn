@@ -13,4 +13,7 @@
 
 @property (nonatomic, strong) NSMutableArray<ThemeModel> *objects;
 
+#pragma mark - Search
+- (ThemeModel *)getThemeModelForThemeTagCode:(NSString *)themeTagCode;
+
 @end
