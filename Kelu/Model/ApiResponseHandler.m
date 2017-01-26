@@ -124,4 +124,10 @@ static dispatch_once_t dispatchOnce;
     [self performHttpOperationWithType:@"GET" WithBaseURL:self.baseURL withEndPoint:@"language/get_available_languages/" withParameteres:parameters SuccessCompletionBlock:success withFailureCompletionBlock:failure];
 }
 
+#pragma mark - Themes
+- (void)fetchThemesWithParams:(NSMutableDictionary *)parameters withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure
+{
+    [self performHttpOperationWithType:@"GET" WithBaseURL:self.baseURL withEndPoint:@"locationtags/" withParameteres:parameters SuccessCompletionBlock:success withFailureCompletionBlock:failure];
+}
+
 @end

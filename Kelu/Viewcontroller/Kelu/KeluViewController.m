@@ -35,13 +35,15 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initialize];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -66,7 +68,7 @@
 
 - (void)initializeVariable
 {
-    refreshRequired = YES;
+    _refreshRequired = YES;
 }
 
 - (void)initializeHeaderView
@@ -89,7 +91,7 @@
 - (void)languageSuccessfullySelected
 {
     [hView reloadHeaderView];
-    refreshRequired = YES;
+    _refreshRequired = YES;
 }
 
 #pragma mark - Navigation / Push

@@ -38,9 +38,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if (refreshRequired)
+    if (self.refreshRequired)
     {
-        refreshRequired = NO;
+        self.refreshRequired = NO;
         [self fetchDataForHome];
     }
 }
@@ -49,6 +49,14 @@
 {
     [super viewDidDisappear:animated];
 }
+
+#pragma mark - Initialization
+
+- (void)initialize
+{
+    [super initialize];
+}
+
 
 #pragma mark - Fetch
 

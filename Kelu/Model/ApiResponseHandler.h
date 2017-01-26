@@ -30,4 +30,6 @@ withFailureCompletionBlock:(void(^)(NSError*error))failure;
 - (void)fetchTextWithParams:(NSMutableDictionary *)parameters withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure;
 #pragma mark - Languages
 - (void)fetchLanguagesWithParams:(NSMutableDictionary *)parameters withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure;
+#pragma mark - Themes
+- (void)fetchThemesWithParams:(NSMutableDictionary *)parameters withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure;
 @end
