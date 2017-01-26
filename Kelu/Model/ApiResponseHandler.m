@@ -117,4 +117,11 @@ static dispatch_once_t dispatchOnce;
 {
     [self performHttpOperationWithType:@"GET" WithBaseURL:self.baseURL withEndPoint:@"textsresponse/get_tag_texts/" withParameteres:parameters SuccessCompletionBlock:success withFailureCompletionBlock:failure];
 }
+
+#pragma mark - Languages
+- (void)fetchLanguagesWithParams:(NSMutableDictionary *)parameters withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure
+{
+    [self performHttpOperationWithType:@"GET" WithBaseURL:self.baseURL withEndPoint:@"language/get_available_languages/" withParameteres:parameters SuccessCompletionBlock:success withFailureCompletionBlock:failure];
+}
+
 @end

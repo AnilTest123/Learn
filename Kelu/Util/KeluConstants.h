@@ -13,3 +13,5 @@ static NSInteger const kUnauthorizedRequest = 401;
 static NSInteger const kUnknownBaseURLError = 1;
 static NSInteger const kUnsupportedURLError = -1002;
 #define kKeychainHasLoggedIn @"HasLoggedIn"
+#define kKeychainSelectedLanguageKey @"SelectedLanguageKey"
+#define kKeychainSelectedLanguageName @"SelectedLanguageName"

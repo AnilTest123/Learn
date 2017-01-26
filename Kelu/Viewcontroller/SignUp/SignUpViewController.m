@@ -83,11 +83,7 @@ typedef enum : NSUInteger {
 
 - (void)customizeContinueButton
 {
-    self.continueButton.layer.cornerRadius = CONTINUE_BUTTON_CORNER_RADIUS;
-    self.continueButton.layer.shadowColor = [UIColor lightGrayColor].CGColor;
-    self.continueButton.layer.shadowOffset = CGSizeMake(CONTINUE_BUTTON_SHADOW_OFFSET, CONTINUE_BUTTON_SHADOW_OFFSET);
-    self.continueButton.layer.shadowRadius = CONTINUE_BUTTON_SHADOW_RADIUS;
-    self.continueButton.layer.shadowOpacity = CONTINUE_BUTTON_SHADOW_OPACITY;
+    [ViewCustomEffect setShadowEffectOnButton:self.continueButton];
 }
 
 #pragma mark - Button Action Method

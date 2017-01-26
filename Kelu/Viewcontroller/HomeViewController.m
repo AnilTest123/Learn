@@ -7,33 +7,27 @@
 //
 
 #import "HomeViewController.h"
-#import "ApiResponseHandler.h"
-#import "KeluActivityIndicator.h"
-#import "JsonTest.h"
-#import "CHTumblrMenuView.h"
 #import "TextsResponse.h"
+#import "CHTumblrMenuView.h"
+#import "ContentTableViewCell.h"
 
-@interface HomeViewController ()
+@interface HomeViewController () <UITableViewDelegate,UITableViewDataSource,ContentTableViewCellDelegate>
 {
     NSIndexPath *selectedIndexPath;
     TextsResponse *textsResponse;
 }
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
 @end
 
 @implementation HomeViewController
 
+#pragma mark - Life Cycle Methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    UIImage *menuImage = [UIImage imageNamed:@"MenuIcon"];
-    menuImage = [menuImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIBarButtonItem * leftItem = [[UIBarButtonItem alloc] initWithImage:menuImage style:UIBarButtonItemStylePlain target:self action:@selector(showMenu:)];
-    self.navigationItem.leftBarButtonItem = leftItem;
-    
-    NSMutableArray *myArray = [[NSMutableArray alloc] init];
-    NSNumber  *myNumber = [NSNumber numberWithFloat:10];
-    [myArray addObject:myNumber];
-    [self fetchDataForTheme];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,30 +35,24 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self performUpdate];
+    if (refreshRequired)
+    {
+        refreshRequired = NO;
+        [self fetchDataForHome];
+    }
 }
 
-#pragma mark - Update
--(void)performUpdate
+- (void)viewDidDisappear:(BOOL)animated
 {
-//    [NSThread sleepForTimeInterval:4];
-//    int i = arc4random() % 100;
-    self.title = [[NSString alloc]initWithFormat:@"Title:1"];
-}
-
-#pragma mark - Show Menu
-- (void)showMenu:(id)sender {
-    
-    //[self.view endEditing:YES];
-    
+    [super viewDidDisappear:animated];
 }
 
 #pragma mark - Fetch
 
--(void)fetchDataForTheme
+-(void)fetchDataForHome
 {
     [KeluActivityIndicator showIndicator:self.view animated:YES];
     [[ApiResponseHandler sharedApiResponseHandlerInstance] fetchTextWithParams:[self getTextParameters]
@@ -72,7 +60,6 @@
             
             [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
             textsResponse = [[TextsResponse alloc] initWithString:responseString error:nil];
-            NSLog(@"%@",responseString);
             [self reload];
             
         } withFailureCompletionBlock:^(NSError *error) {
@@ -87,7 +74,7 @@
 {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] initWithCapacity:0];
     [parameters setObject:@"TAG00001" forKey:@"tag_code"];
-    [parameters setObject:@"KA" forKey:@"dest_lan_key"];
+    [parameters setObject:[KKeyChain loadKeyChainValueForKey:kKeychainSelectedLanguageKey] forKey:@"dest_lan_key"];
     return parameters;
 }
 
@@ -143,9 +130,8 @@
     });
 }
 #pragma mark - Delegates
--(void)tappedOnShareForObject:(JsonTest *)obj
+-(void)tappedOnShareForObject:(TextModel *)textModel
 {
-    
     CHTumblrMenuView *menuView = [[CHTumblrMenuView alloc] init];
     //menuView.backgroundImgView.backgroundColor = [UIColor clearColor];
     menuView.backgroundImgView.alpha = 0.3;
@@ -161,15 +147,5 @@
     }];
     [menuView show];
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

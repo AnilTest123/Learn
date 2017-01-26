@@ -6,11 +6,8 @@
 //  Copyright © 2016 Anil Chopra. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "ContentTableViewCell.h"
+#import "KeluViewController.h"
 
-@interface HomeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,ContentTableViewCellDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@interface HomeViewController : KeluViewController
 
 @end
