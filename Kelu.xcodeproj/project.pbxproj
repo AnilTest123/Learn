@@ -21,6 +21,7 @@
 		C049B25A1D2AC414007EE171 /* CHTumblrMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C049B2591D2AC414007EE171 /* CHTumblrMenuView.m */; };
 		C0A1586E1E39D1B3006D6BB3 /* KKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1586B1E39D1B3006D6BB3 /* KKeyChain.m */; };
 		C0A1586F1E39D1B3006D6BB3 /* JNKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1586D1E39D1B3006D6BB3 /* JNKeychain.m */; };
+		C0A158731E39E305006D6BB3 /* KeluTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A158721E39E305006D6BB3 /* KeluTabBarViewController.m */; };
 		C0FF7EBC1D279988005FD479 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7EBB1D279988005FD479 /* main.m */; };
 		C0FF7EBF1D279988005FD479 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FF7EBE1D279988005FD479 /* AppDelegate.m */; };
 		C0FF7EC51D279988005FD479 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0FF7EC31D279988005FD479 /* Main.storyboard */; };
@@ -88,6 +89,8 @@
 		C0A1586B1E39D1B3006D6BB3 /* KKeyChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKeyChain.m; sourceTree = "<group>"; };
 		C0A1586C1E39D1B3006D6BB3 /* JNKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNKeychain.h; sourceTree = "<group>"; };
 		C0A1586D1E39D1B3006D6BB3 /* JNKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNKeychain.m; sourceTree = "<group>"; };
+		C0A158711E39E305006D6BB3 /* KeluTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeluTabBarViewController.h; path = "Viewcontroller/Tab Bar/KeluTabBarViewController.h"; sourceTree = "<group>"; };
+		C0A158721E39E305006D6BB3 /* KeluTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeluTabBarViewController.m; path = "Viewcontroller/Tab Bar/KeluTabBarViewController.m"; sourceTree = "<group>"; };
 		C0FF7EB71D279988005FD479 /* Kelu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kelu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FF7EBB1D279988005FD479 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C0FF7EBD1D279988005FD479 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -264,6 +267,15 @@
 			path = Util/KeyChain;
 			sourceTree = "<group>";
 		};
+		C0A158701E39E29E006D6BB3 /* Tabview */ = {
+			isa = PBXGroup;
+			children = (
+				C0A158711E39E305006D6BB3 /* KeluTabBarViewController.h */,
+				C0A158721E39E305006D6BB3 /* KeluTabBarViewController.m */,
+			);
+			name = Tabview;
+			sourceTree = "<group>";
+		};
 		C0FF7EAE1D279988005FD479 = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +347,7 @@
 		C0FF7EF01D27D2A8005FD479 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C0A158701E39E29E006D6BB3 /* Tabview */,
 				611B61501E390A1D002AD82F /* Alert Controller */,
 				61460B9D1E37D676000CC92F /* Login */,
 				61460B991E37D0FF000CC92F /* SignUp */,
@@ -613,6 +626,7 @@
 				C0FF7F1D1D28E236005FD479 /* JsonTestData.m in Sources */,
 				C0FF7EF31D27D2D3005FD479 /* LoginViewController.m in Sources */,
 				C0FF7F0A1D28B93B005FD479 /* ApiResponseHandler.m in Sources */,
+				C0A158731E39E305006D6BB3 /* KeluTabBarViewController.m in Sources */,
 				611B61621E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.m in Sources */,
 				C049B25A1D2AC414007EE171 /* CHTumblrMenuView.m in Sources */,
 				C0FF7EF91D27D915005FD479 /* RootViewController.m in Sources */,

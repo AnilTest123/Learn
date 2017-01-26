@@ -50,9 +50,9 @@
 #pragma mark - Update
 -(void)performUpdate
 {
-    [NSThread sleepForTimeInterval:4];
-    int i = arc4random() % 100;
-    self.title = [[NSString alloc]initWithFormat:@"Title: %d", i];
+//    [NSThread sleepForTimeInterval:4];
+//    int i = arc4random() % 100;
+    self.title = [[NSString alloc]initWithFormat:@"Title:1"];
 }
 
 #pragma mark - Show Menu

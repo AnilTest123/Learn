@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [self instantiateViewController];
+    //[self instantiateViewController];
     return YES;
 }
 
@@ -75,15 +75,17 @@
 
 -(NSString*)rootViewController{
     
-    if ([(NSString*)[KKeyChain loadKeyChainValueForKey:kKeychainHasLoggedIn] isEqualToString:@"YES"])
-    {
-        return @"NavigationController";
-    }
-    else
-    {
-        [self reset];
-        return @"SignUpNavigationController";
-    }
+    return @"KeluTabBarViewController";
+    
+//    if ([(NSString*)[KKeyChain loadKeyChainValueForKey:kKeychainHasLoggedIn] isEqualToString:@"YES"])
+//    {
+//        return @"KeluTabBarViewController";
+//    }
+//    else
+//    {
+//        [self reset];
+//        return @"SignUpNavigationController";
+//    }
 }
 
 #pragma mark Rest
