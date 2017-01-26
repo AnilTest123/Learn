@@ -14,6 +14,13 @@
 #define CONTINUE_BUTTON_SHADOW_RADIUS 5.0f
 #define CONTINUE_BUTTON_SHADOW_OPACITY 0.7f
 
+typedef enum : NSUInteger {
+    kSignUpSuccess,
+    kSignUpError,
+    kEmailAddressError,
+    kPasswordMismatchError
+} SignUpStatus;
+
 @interface SignUpViewController () <SocialNetworkingViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *email;
@@ -88,39 +95,31 @@
 #pragma mark Sign In Button
 - (IBAction)signUpButtonPressed:(UIButton *)sender
 {
-    if ([[self.password text] isEqualToString:[self.confirmPassword text]])
+    if ([self validateEmailAddress:[self.email text]])
     {
-        [KeluActivityIndicator showIndicator:self.view animated:YES];
-        [[ApiResponseHandler sharedApiResponseHandlerInstance] registerUserWith:[self getUserRegisterParameters]
-                                                     withSuccessCompletionBlock:^(NSString *responseData) {
-                                                         [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
-                                                         
-                                                         NSLog(@"%@",responseData);
-                                                         
-                                                     } withFailureCompletionBlock:^(NSError *error) {
-                                                         
-                                                         [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
-                                                         [KeluAlertViewController showAlertControllerWithTitle:@"Error"
-                                                                                                       message:error.localizedDescription
-                                                                                             acceptActionTitle:@"OK"
-                                                                                             acceptActionBlock:nil
-                                                                                            dismissActionTitle:nil
-                                                                                            dismissActionBlock:nil
-                                                                                      presentingViewController:self];
-                                                     }];
+        if ([[self.password text] isEqualToString:[self.confirmPassword text]])
+        {
+            [KeluActivityIndicator showIndicator:self.view animated:YES];
+            [[ApiResponseHandler sharedApiResponseHandlerInstance] registerUserWith:[self getUserRegisterParameters]
+                                                         withSuccessCompletionBlock:^(NSString *responseData) {
+                                                             [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
+                                                             
+                                                             [self showAlertErrorMessageForSignUpErrorType:kSignUpSuccess error:nil];
+                                                             
+                                                         } withFailureCompletionBlock:^(NSError *error) {
+                                                             
+                                                             [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
+                                                             [self showAlertErrorMessageForSignUpErrorType:kSignUpError error:error.localizedDescription];
+                                                         }];
+        }
+        else
+        {
+            [self showAlertErrorMessageForSignUpErrorType:kPasswordMismatchError error:nil];
+        }
     }
     else
     {
-        [KeluAlertViewController showAlertControllerWithTitle:@"Error"
-                                                      message:@"Password and Confirm Password mistach"
-                                            acceptActionTitle:@"OK"
-                                            acceptActionBlock:^(UIAlertAction * _Nullable action) {
-                                                self.password.text = @"";
-                                                self.confirmPassword.text = @"";
-                                            }
-                                           dismissActionTitle:nil
-                                           dismissActionBlock:nil
-                                     presentingViewController:self];
+        [self showAlertErrorMessageForSignUpErrorType:kEmailAddressError error:nil];
     }
 }
 
@@ -154,5 +153,83 @@
     return parameters;
 }
 
+- (BOOL) validateEmailAddress: (NSString *) emailAddress
+{
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:emailAddress];
+}
+
+- (void)showAlertErrorMessageForSignUpErrorType:(SignUpStatus)errorType error:(NSString *)error
+{
+    NSString *message = @"", *title = @"";
+    if (errorType == kEmailAddressError)
+    {
+        title = @"Invalid Email Address";
+        message = @"Please enter the valid email address to sign up";
+    }
+    else if(errorType == kPasswordMismatchError)
+    {
+        title = @"Password Mismatch";
+        message = @"Please enter the password and confirm password same";
+    }
+    else if (errorType == kSignUpSuccess)
+    {
+        title = @"Success";
+        message = @"Sign Up successfully completed please login with your username and password";
+    }
+    else
+    {
+        title = @"Error";
+        message = error;
+    }
+    [KeluAlertViewController showAlertControllerWithTitle:title
+                                                  message:message
+                                        acceptActionTitle:@"OK"
+                                        acceptActionBlock:^(UIAlertAction * _Nullable action) {
+                                            switch (errorType) {
+                                                case kSignUpSuccess:
+                                                    [self signUpSuccess];
+                                                    break;
+                                                case kSignUpError:
+                                                    [self userAleradyExist];
+                                                    break;
+                                                case kEmailAddressError:
+                                                    [self clearAllSignUpFields];
+                                                    break;
+                                                case kPasswordMismatchError:
+                                                    [self clearPasswordConfirmPasswordField];
+                                                    break;
+                                                default:
+                                                    break;
+                                            }
+                                        }
+                                       dismissActionTitle:nil
+                                       dismissActionBlock:nil
+                                 presentingViewController:self];
+}
+
+- (void)clearAllSignUpFields
+{
+    self.email.text = @"";
+    self.password.text = @"";
+    self.confirmPassword.text = @"";
+}
+
+- (void)clearPasswordConfirmPasswordField
+{
+    self.password.text = @"";
+    self.confirmPassword.text = @"";
+}
+
+- (void)signUpSuccess
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)userAleradyExist
+{
+    [self clearAllSignUpFields];
+}
 
 @end

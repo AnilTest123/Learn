@@ -106,9 +106,6 @@
 #pragma mark Sign In Button
 - (IBAction)signInButtonPressed:(UIButton *)sender
 {
-//    AppDelegate *delegate = ((AppDelegate*)[[UIApplication sharedApplication]delegate]);
-//    
-//    [delegate initiateContentViewController];
     if ([[self.password text] length])
     {
         [KeluActivityIndicator showIndicator:self.view animated:YES];
