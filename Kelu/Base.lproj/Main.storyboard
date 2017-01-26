@@ -252,7 +252,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.35231903199999998" green="0.35230854150000002" blue="0.35231450199999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                         <color key="value" red="0.67358243470000001" green="0.67356222870000004" blue="0.67357367280000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
