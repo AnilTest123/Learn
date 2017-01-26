@@ -28,4 +28,6 @@ withFailureCompletionBlock:(void(^)(NSError*error))failure;
 
 #pragma mark - Text
 - (void)fetchTextWithParams:(NSMutableDictionary *)parameters withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure;
+#pragma mark - Languages
+- (void)fetchLanguagesWithParams:(NSMutableDictionary *)parameters withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure;
 @end

@@ -20,4 +20,7 @@
 
 + (HeaderView *)initializeHeaderViewWithFrame:(CGRect)frame;
 
+#pragma mark - Reload Lanaguage
+- (void)reloadHeaderView;
+
 @end

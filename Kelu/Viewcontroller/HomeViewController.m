@@ -24,9 +24,10 @@
 
 @implementation HomeViewController
 
+#pragma mark - Life Cycle Methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchDataForTheme];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,15 +35,24 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.title = @"Home";
+    if (refreshRequired)
+    {
+        refreshRequired = NO;
+        [self fetchDataForHome];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
 }
 
 #pragma mark - Fetch
 
--(void)fetchDataForTheme
+-(void)fetchDataForHome
 {
     [KeluActivityIndicator showIndicator:self.view animated:YES];
     [[ApiResponseHandler sharedApiResponseHandlerInstance] fetchTextWithParams:[self getTextParameters]
@@ -50,7 +60,6 @@
             
             [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
             textsResponse = [[TextsResponse alloc] initWithString:responseString error:nil];
-            NSLog(@"%@",responseString);
             [self reload];
             
         } withFailureCompletionBlock:^(NSError *error) {
@@ -65,7 +74,7 @@
 {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] initWithCapacity:0];
     [parameters setObject:@"TAG00001" forKey:@"tag_code"];
-    [parameters setObject:@"KA" forKey:@"dest_lan_key"];
+    [parameters setObject:[KKeyChain loadKeyChainValueForKey:kKeychainSelectedLanguageKey] forKey:@"dest_lan_key"];
     return parameters;
 }
 

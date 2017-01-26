@@ -42,6 +42,18 @@
 - (void)customizeLanguageButton
 {
     [ViewCustomEffect setShadowEffectOnButton:self.languageButton];
+    [self setLangugageButtonTitle];
+}
+
+- (void)setLangugageButtonTitle
+{
+    NSString *languageName = [KKeyChain loadKeyChainValueForKey:kKeychainSelectedLanguageName];
+    if (![languageName length])
+    {
+        languageName = @"Hindi";
+    }
+    [self.languageButton setTitle:languageName forState:UIControlStateNormal];
+
 }
 
 #pragma mark - Init
@@ -54,6 +66,12 @@
     headerView.frame = frame;
     [headerView layoutIfNeeded];
     return headerView;
+}
+
+#pragma mark - Reload Lanaguage
+- (void)reloadHeaderView
+{
+    [self setLangugageButtonTitle];
 }
 
 #pragma mark - Button Action

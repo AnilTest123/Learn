@@ -12,5 +12,7 @@
 
 + (void)setShadowEffectOnButton:(UIButton *)button;
 + (void)setCornerRadiusOnButton:(UIButton *)button;
++ (void)setShadowEffectOnView:(UIView *)view;
++ (void)setBorderForView:(UIView *)view borderWidth:(CGFloat)width color:(UIColor *)color;
 
 @end

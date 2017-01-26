@@ -25,7 +25,12 @@
     
 }
 
-#pragma mark - Private
++ (void)setBorderForView:(UIView *)view borderWidth:(CGFloat)width color:(UIColor *)color
+{
+    view.layer.borderWidth = width;
+    view.layer.borderColor = color.CGColor;
+}
+
 
 + (void)setShadowEffectOnView:(UIView *)view
 {

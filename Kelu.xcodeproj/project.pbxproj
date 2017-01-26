@@ -19,6 +19,11 @@
 		61D777DB1E3A1080000A0088 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D777DA1E3A1080000A0088 /* HeaderView.m */; };
 		61D777DD1E3A1099000A0088 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61D777DC1E3A1099000A0088 /* HeaderView.xib */; };
 		61D777E11E3A16D2000A0088 /* ViewCustomEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D777E01E3A16D2000A0088 /* ViewCustomEffect.m */; };
+		61D777E51E3A1EAB000A0088 /* LanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D777E41E3A1EAB000A0088 /* LanguageViewController.m */; };
+		61D777E91E3A1F04000A0088 /* LanguageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D777E81E3A1F04000A0088 /* LanguageTableView.m */; };
+		61D777EC1E3A2363000A0088 /* LanguageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D777EB1E3A2363000A0088 /* LanguageCell.m */; };
+		61D777EF1E3A27E5000A0088 /* LanguageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D777EE1E3A27E5000A0088 /* LanguageResponse.m */; };
+		61D777F21E3A2809000A0088 /* LanguageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D777F11E3A2809000A0088 /* LanguageModel.m */; };
 		63F54EACDCDD35105E995035 /* libPods-Kelu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 782D82A9B0C6388151854D49 /* libPods-Kelu.a */; };
 		C049B24F1D2969D1007EE171 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C049B24E1D2969D1007EE171 /* CALayer+UIColor.m */; };
 		C049B2521D2AC3C5007EE171 /* CHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C049B2511D2AC3C5007EE171 /* CHViewController.m */; };
@@ -88,6 +93,16 @@
 		61D777DC1E3A1099000A0088 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderView.xib; path = View/Header/HeaderView.xib; sourceTree = "<group>"; };
 		61D777DF1E3A16D2000A0088 /* ViewCustomEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewCustomEffect.h; path = Util/CustomEffect/ViewCustomEffect.h; sourceTree = "<group>"; };
 		61D777E01E3A16D2000A0088 /* ViewCustomEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewCustomEffect.m; path = Util/CustomEffect/ViewCustomEffect.m; sourceTree = "<group>"; };
+		61D777E31E3A1EAB000A0088 /* LanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanguageViewController.h; path = Viewcontroller/Language/LanguageViewController.h; sourceTree = "<group>"; };
+		61D777E41E3A1EAB000A0088 /* LanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanguageViewController.m; path = Viewcontroller/Language/LanguageViewController.m; sourceTree = "<group>"; };
+		61D777E71E3A1F04000A0088 /* LanguageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanguageTableView.h; path = Viewcontroller/Language/Views/LanguageTableView.h; sourceTree = "<group>"; };
+		61D777E81E3A1F04000A0088 /* LanguageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanguageTableView.m; path = Viewcontroller/Language/Views/LanguageTableView.m; sourceTree = "<group>"; };
+		61D777EA1E3A2363000A0088 /* LanguageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanguageCell.h; path = Viewcontroller/Language/Views/LanguageCell.h; sourceTree = "<group>"; };
+		61D777EB1E3A2363000A0088 /* LanguageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanguageCell.m; path = Viewcontroller/Language/Views/LanguageCell.m; sourceTree = "<group>"; };
+		61D777ED1E3A27E5000A0088 /* LanguageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanguageResponse.h; path = Model/JSONModel/LanguageResponse.h; sourceTree = "<group>"; };
+		61D777EE1E3A27E5000A0088 /* LanguageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanguageResponse.m; path = Model/JSONModel/LanguageResponse.m; sourceTree = "<group>"; };
+		61D777F01E3A2809000A0088 /* LanguageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanguageModel.h; path = Model/JSONModel/LanguageModel.h; sourceTree = "<group>"; };
+		61D777F11E3A2809000A0088 /* LanguageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanguageModel.m; path = Model/JSONModel/LanguageModel.m; sourceTree = "<group>"; };
 		782D82A9B0C6388151854D49 /* libPods-Kelu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Kelu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49F8E18B62DD887A9CF4830 /* Pods-Kelu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kelu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kelu/Pods-Kelu.release.xcconfig"; sourceTree = "<group>"; };
 		C049B24D1D2969D1007EE171 /* CALayer+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CALayer+UIColor.h"; path = "Util/Category/CALayer+UIColor.h"; sourceTree = "<group>"; };
@@ -275,6 +290,27 @@
 			name = CustomEffect;
 			sourceTree = "<group>";
 		};
+		61D777E21E3A1E92000A0088 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				61D777E61E3A1ED7000A0088 /* Views */,
+				61D777E31E3A1EAB000A0088 /* LanguageViewController.h */,
+				61D777E41E3A1EAB000A0088 /* LanguageViewController.m */,
+			);
+			name = Language;
+			sourceTree = "<group>";
+		};
+		61D777E61E3A1ED7000A0088 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				61D777E71E3A1F04000A0088 /* LanguageTableView.h */,
+				61D777E81E3A1F04000A0088 /* LanguageTableView.m */,
+				61D777EA1E3A2363000A0088 /* LanguageCell.h */,
+				61D777EB1E3A2363000A0088 /* LanguageCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		91687C17FF053691BAB9B24D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +367,10 @@
 				C0A158761E39E80A006D6BB3 /* TextModel.m */,
 				C0A158781E39E88D006D6BB3 /* TextsResponse.h */,
 				C0A158791E39E88D006D6BB3 /* TextsResponse.m */,
+				61D777ED1E3A27E5000A0088 /* LanguageResponse.h */,
+				61D777EE1E3A27E5000A0088 /* LanguageResponse.m */,
+				61D777F01E3A2809000A0088 /* LanguageModel.h */,
+				61D777F11E3A2809000A0088 /* LanguageModel.m */,
 			);
 			name = JSONModel;
 			sourceTree = "<group>";
@@ -406,6 +446,7 @@
 		C0FF7EF01D27D2A8005FD479 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				61D777E21E3A1E92000A0088 /* Language */,
 				61D777D41E3A08C6000A0088 /* Kelu */,
 				61D777D31E3A08B1000A0088 /* Home */,
 				C0A158701E39E29E006D6BB3 /* Tabview */,
@@ -671,7 +712,9 @@
 				C0FF7F0F1D28C0B8005FD479 /* ErrorHandler.m in Sources */,
 				C0A1587A1E39E88D006D6BB3 /* TextsResponse.m in Sources */,
 				611B61531E390A5D002AD82F /* KeluAlertViewController.m in Sources */,
+				61D777EF1E3A27E5000A0088 /* LanguageResponse.m in Sources */,
 				C0FF7F071D27F462005FD479 /* HomeViewController.m in Sources */,
+				61D777F21E3A2809000A0088 /* LanguageModel.m in Sources */,
 				611B615B1E390EC2002AD82F /* KeluSpinner.m in Sources */,
 				61D777DB1E3A1080000A0088 /* HeaderView.m in Sources */,
 				61460B9C1E37D12B000CC92F /* SignUpViewController.m in Sources */,
@@ -679,15 +722,18 @@
 				C0FF7F1A1D28DFF6005FD479 /* JsonTest.m in Sources */,
 				C049B2521D2AC3C5007EE171 /* CHViewController.m in Sources */,
 				C049B24F1D2969D1007EE171 /* CALayer+UIColor.m in Sources */,
+				61D777EC1E3A2363000A0088 /* LanguageCell.m in Sources */,
 				C0FF7EBC1D279988005FD479 /* main.m in Sources */,
 				C0FF7F041D27EEA2005FD479 /* MenuTitleTableViewCell.m in Sources */,
 				C0FF7F211D28F856005FD479 /* ContentTableViewCell.m in Sources */,
 				C0A1586F1E39D1B3006D6BB3 /* JNKeychain.m in Sources */,
 				C0FF7F1D1D28E236005FD479 /* JsonTestData.m in Sources */,
 				C0FF7EF31D27D2D3005FD479 /* LoginViewController.m in Sources */,
+				61D777E91E3A1F04000A0088 /* LanguageTableView.m in Sources */,
 				C0FF7F0A1D28B93B005FD479 /* ApiResponseHandler.m in Sources */,
 				61D777E11E3A16D2000A0088 /* ViewCustomEffect.m in Sources */,
 				C0A158731E39E305006D6BB3 /* KeluTabBarViewController.m in Sources */,
+				61D777E51E3A1EAB000A0088 /* LanguageViewController.m in Sources */,
 				611B61621E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.m in Sources */,
 				C049B25A1D2AC414007EE171 /* CHTumblrMenuView.m in Sources */,
 				61460BA11E37D90B000CC92F /* SocialNetworkingView.m in Sources */,

@@ -8,8 +8,12 @@
 
 #import "KeluViewController.h"
 #import "HeaderView.h"
+#import "LanguageViewController.h"
 
-@interface KeluViewController () <HeaderViewDelegate>
+@interface KeluViewController () <HeaderViewDelegate, LanguageViewControllerDelegate>
+{
+    HeaderView *hView;
+}
 
 @property (nonatomic, weak) IBOutlet UIView *headerView;
 
@@ -18,6 +22,18 @@
 @implementation KeluViewController
 
 #pragma mark - Life Cycle Method
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,12 +60,18 @@
 
 - (void)initialize
 {
+    [self initializeVariable];
     [self initializeHeaderView];
+}
+
+- (void)initializeVariable
+{
+    refreshRequired = YES;
 }
 
 - (void)initializeHeaderView
 {
-    HeaderView *hView = [HeaderView initializeHeaderViewWithFrame:self.headerView.bounds];
+    hView = [HeaderView initializeHeaderViewWithFrame:self.headerView.bounds];
     hView.delegate = self;
     [self.headerView addSubview:hView];
 }
@@ -59,7 +81,31 @@
 #pragma mark HeaderView Delegate
 - (void)languageButtonPressed
 {
-    
+    [self navigateToLanguageViewControllerWithAnimated:YES];
+}
+
+#pragma mark LanguageView Controller Deleage
+
+- (void)languageSuccessfullySelected
+{
+    [hView reloadHeaderView];
+    refreshRequired = YES;
+}
+
+#pragma mark - Navigation / Push
+
+#pragma mark Language View Controller
+
+- (void)navigateToLanguageViewControllerWithAnimated:(BOOL)animated
+{
+    LanguageViewController* languageViewController =
+    [self.storyboard instantiateViewControllerWithIdentifier:@"LanguageViewController"];
+    languageViewController.delegate = self;
+    languageViewController.hidesBottomBarWhenPushed = YES;
+    if([self.navigationController respondsToSelector:@selector(showViewController:sender:)])
+        [self.navigationController showViewController:languageViewController sender:self];
+    else
+        [self.navigationController pushViewController:languageViewController animated:animated];
 }
 
 @end
