@@ -8,16 +8,15 @@
 
 #import "HomeViewController.h"
 #import "TextsResponse.h"
-#import "CHTumblrMenuView.h"
-#import "ContentTableViewCell.h"
+#import "HomeTableView.h"
 
-@interface HomeViewController () <UITableViewDelegate,UITableViewDataSource,ContentTableViewCellDelegate>
+@interface HomeViewController ()
 {
     NSIndexPath *selectedIndexPath;
     TextsResponse *textsResponse;
 }
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet HomeTableView *homeTableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
@@ -100,74 +99,11 @@
     return parameters;
 }
 
-#pragma mark - Table View
+#pragma mark - Private Method
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (void)reload
 {
-    return 1;
-}
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return [textsResponse.TextsResponse count];
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 40;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *CellIdentifier = @"ContentTableViewCell";
-    ContentTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell.delegate = self;
-    cell.textModel = [textsResponse.TextsResponse objectAtIndex:indexPath.section];
-    cell.bottomView.hidden = YES;
-    cell.bottomViewHeight.constant = 0;
-    
-    return cell;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 5;
-}
-
--(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return indexPath;
-}
-
--(NSIndexPath *)tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return indexPath;
-}
-
-#pragma mark Reload
--(void)reload
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
-    });
-}
-#pragma mark - Delegates
--(void)tappedOnShareForObject:(TextModel *)textModel
-{
-    CHTumblrMenuView *menuView = [[CHTumblrMenuView alloc] init];
-    //menuView.backgroundImgView.backgroundColor = [UIColor clearColor];
-    menuView.backgroundImgView.alpha = 0.3;
-    [menuView addMenuItemWithTitle:@"Quote" andIcon:[UIImage imageNamed:@"Image1"] andSelectedBlock:^{
-        NSLog(@"Quote selected");
-    }];
-    [menuView addMenuItemWithTitle:@"Image" andIcon:[UIImage imageNamed:@"Image2"] andSelectedBlock:^{
-        NSLog(@"Image selected");
-    }];
-    [menuView addMenuItemWithTitle:@"Hi" andIcon:[UIImage imageNamed:@"Image3"] andSelectedBlock:^{
-        NSLog(@"Hi selected");
-        
-    }];
-    [menuView show];
+    self.homeTableView.textResponse = textsResponse.TextsResponse;
 }
 
 @end
