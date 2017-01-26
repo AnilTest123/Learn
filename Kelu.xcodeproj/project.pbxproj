@@ -29,6 +29,7 @@
 		61D777FD1E3A4A07000A0088 /* ThemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D777FC1E3A4A07000A0088 /* ThemeCell.m */; };
 		61D778001E3A4CB0000A0088 /* ThemeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D777FF1E3A4CB0000A0088 /* ThemeModel.m */; };
 		61D778031E3A4D1E000A0088 /* ThemeResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D778021E3A4D1E000A0088 /* ThemeResponse.m */; };
+		61D778071E3A616F000A0088 /* MyStuffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D778061E3A616F000A0088 /* MyStuffViewController.m */; };
 		63F54EACDCDD35105E995035 /* libPods-Kelu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 782D82A9B0C6388151854D49 /* libPods-Kelu.a */; };
 		C049B24F1D2969D1007EE171 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C049B24E1D2969D1007EE171 /* CALayer+UIColor.m */; };
 		C049B2521D2AC3C5007EE171 /* CHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C049B2511D2AC3C5007EE171 /* CHViewController.m */; };
@@ -118,6 +119,8 @@
 		61D777FF1E3A4CB0000A0088 /* ThemeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeModel.m; path = Model/JSONModel/ThemeModel.m; sourceTree = "<group>"; };
 		61D778011E3A4D1E000A0088 /* ThemeResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeResponse.h; path = Model/JSONModel/ThemeResponse.h; sourceTree = "<group>"; };
 		61D778021E3A4D1E000A0088 /* ThemeResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeResponse.m; path = Model/JSONModel/ThemeResponse.m; sourceTree = "<group>"; };
+		61D778051E3A616F000A0088 /* MyStuffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyStuffViewController.h; path = "Viewcontroller/My Stuff/MyStuffViewController.h"; sourceTree = "<group>"; };
+		61D778061E3A616F000A0088 /* MyStuffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyStuffViewController.m; path = "Viewcontroller/My Stuff/MyStuffViewController.m"; sourceTree = "<group>"; };
 		782D82A9B0C6388151854D49 /* libPods-Kelu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Kelu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49F8E18B62DD887A9CF4830 /* Pods-Kelu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kelu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kelu/Pods-Kelu.release.xcconfig"; sourceTree = "<group>"; };
 		C049B24D1D2969D1007EE171 /* CALayer+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CALayer+UIColor.h"; path = "Util/Category/CALayer+UIColor.h"; sourceTree = "<group>"; };
@@ -347,6 +350,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		61D778041E3A6144000A0088 /* MyStuff */ = {
+			isa = PBXGroup;
+			children = (
+				61D778051E3A616F000A0088 /* MyStuffViewController.h */,
+				61D778061E3A616F000A0088 /* MyStuffViewController.m */,
+			);
+			name = MyStuff;
+			sourceTree = "<group>";
+		};
 		91687C17FF053691BAB9B24D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +498,7 @@
 		C0FF7EF01D27D2A8005FD479 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				61D778041E3A6144000A0088 /* MyStuff */,
 				61D777F31E3A4455000A0088 /* Theme */,
 				61D777E21E3A1E92000A0088 /* Language */,
 				61D777D41E3A08C6000A0088 /* Kelu */,
@@ -787,6 +800,7 @@
 				61D777D71E3A0976000A0088 /* KeluViewController.m in Sources */,
 				611B615E1E391015002AD82F /* UIColor+More.m in Sources */,
 				C0A1586E1E39D1B3006D6BB3 /* KKeyChain.m in Sources */,
+				61D778071E3A616F000A0088 /* MyStuffViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
