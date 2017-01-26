@@ -379,15 +379,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LeA-XE-FL9" userLabel="Header View">
+                                <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="iRU-eP-IaY"/>
+                                </constraints>
+                            </view>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="eFt-IU-d2m">
-                                <rect key="frame" x="-4" y="20" width="383" height="44"/>
+                                <rect key="frame" x="-4" y="60" width="383" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="vRe-1W-owu" id="cAR-QP-Rpl"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x2g-ak-Uav">
-                                <rect key="frame" x="2" y="66" width="371" height="552"/>
+                                <rect key="frame" x="2" y="106" width="371" height="512"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContentTableViewCell" rowHeight="150" id="fci-gf-3uf" customClass="ContentTableViewCell">
@@ -494,18 +501,22 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="eFt-IU-d2m" firstAttribute="top" secondItem="vyT-D4-stx" secondAttribute="bottom" id="6hq-K9-0yQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eFt-IU-d2m" secondAttribute="trailing" constant="-20" id="DgR-YG-sbV"/>
                             <constraint firstItem="x2g-ak-Uav" firstAttribute="leading" secondItem="gZk-vg-PFY" secondAttribute="leading" constant="2" id="NnT-9P-7Ih"/>
+                            <constraint firstAttribute="trailing" secondItem="LeA-XE-FL9" secondAttribute="trailing" id="PQ2-j5-yh6"/>
                             <constraint firstItem="x2g-ak-Uav" firstAttribute="top" secondItem="eFt-IU-d2m" secondAttribute="bottom" constant="2" id="RDo-6g-yBd"/>
                             <constraint firstItem="eFt-IU-d2m" firstAttribute="leading" secondItem="gZk-vg-PFY" secondAttribute="leadingMargin" constant="-20" id="WU6-fN-ydd"/>
+                            <constraint firstItem="LeA-XE-FL9" firstAttribute="top" secondItem="vyT-D4-stx" secondAttribute="bottom" id="dhF-7J-G0K"/>
+                            <constraint firstItem="eFt-IU-d2m" firstAttribute="top" secondItem="LeA-XE-FL9" secondAttribute="bottom" id="dpt-0D-gxF"/>
                             <constraint firstItem="Xxh-PM-N5D" firstAttribute="top" secondItem="x2g-ak-Uav" secondAttribute="bottom" id="fCy-hB-HuT"/>
+                            <constraint firstItem="LeA-XE-FL9" firstAttribute="leading" secondItem="gZk-vg-PFY" secondAttribute="leading" id="kq7-Wj-1oX"/>
                             <constraint firstAttribute="trailing" secondItem="x2g-ak-Uav" secondAttribute="trailing" constant="2" id="w9L-O0-sa6"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="yhY-WJ-YVu"/>
                     <navigationItem key="navigationItem" id="ZNB-Uh-5yo"/>
                     <connections>
+                        <outlet property="headerView" destination="LeA-XE-FL9" id="PVb-Nu-Hc9"/>
                         <outlet property="searchBar" destination="eFt-IU-d2m" id="Vvd-dX-1fa"/>
                         <outlet property="tableView" destination="x2g-ak-Uav" id="GR3-UW-nP8"/>
                     </connections>

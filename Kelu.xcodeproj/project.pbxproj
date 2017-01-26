@@ -15,6 +15,10 @@
 		61460B9C1E37D12B000CC92F /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61460B9B1E37D12B000CC92F /* SignUpViewController.m */; };
 		61460BA11E37D90B000CC92F /* SocialNetworkingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61460BA01E37D90B000CC92F /* SocialNetworkingView.m */; };
 		61460BA31E37D933000CC92F /* SocialNetworkingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61460BA21E37D933000CC92F /* SocialNetworkingView.xib */; };
+		61D777D71E3A0976000A0088 /* KeluViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D777D61E3A0976000A0088 /* KeluViewController.m */; };
+		61D777DB1E3A1080000A0088 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D777DA1E3A1080000A0088 /* HeaderView.m */; };
+		61D777DD1E3A1099000A0088 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61D777DC1E3A1099000A0088 /* HeaderView.xib */; };
+		61D777E11E3A16D2000A0088 /* ViewCustomEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D777E01E3A16D2000A0088 /* ViewCustomEffect.m */; };
 		63F54EACDCDD35105E995035 /* libPods-Kelu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 782D82A9B0C6388151854D49 /* libPods-Kelu.a */; };
 		C049B24F1D2969D1007EE171 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C049B24E1D2969D1007EE171 /* CALayer+UIColor.m */; };
 		C049B2521D2AC3C5007EE171 /* CHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C049B2511D2AC3C5007EE171 /* CHViewController.m */; };
@@ -77,6 +81,13 @@
 		61460B9F1E37D90B000CC92F /* SocialNetworkingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocialNetworkingView.h; path = View/SocialNetworking/SocialNetworkingView.h; sourceTree = "<group>"; };
 		61460BA01E37D90B000CC92F /* SocialNetworkingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocialNetworkingView.m; path = View/SocialNetworking/SocialNetworkingView.m; sourceTree = "<group>"; };
 		61460BA21E37D933000CC92F /* SocialNetworkingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SocialNetworkingView.xib; path = View/SocialNetworking/SocialNetworkingView.xib; sourceTree = "<group>"; };
+		61D777D51E3A0976000A0088 /* KeluViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeluViewController.h; path = Viewcontroller/Kelu/KeluViewController.h; sourceTree = "<group>"; };
+		61D777D61E3A0976000A0088 /* KeluViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeluViewController.m; path = Viewcontroller/Kelu/KeluViewController.m; sourceTree = "<group>"; };
+		61D777D91E3A1080000A0088 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeaderView.h; path = View/Header/HeaderView.h; sourceTree = "<group>"; };
+		61D777DA1E3A1080000A0088 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeaderView.m; path = View/Header/HeaderView.m; sourceTree = "<group>"; };
+		61D777DC1E3A1099000A0088 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderView.xib; path = View/Header/HeaderView.xib; sourceTree = "<group>"; };
+		61D777DF1E3A16D2000A0088 /* ViewCustomEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewCustomEffect.h; path = Util/CustomEffect/ViewCustomEffect.h; sourceTree = "<group>"; };
+		61D777E01E3A16D2000A0088 /* ViewCustomEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewCustomEffect.m; path = Util/CustomEffect/ViewCustomEffect.m; sourceTree = "<group>"; };
 		782D82A9B0C6388151854D49 /* libPods-Kelu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Kelu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49F8E18B62DD887A9CF4830 /* Pods-Kelu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kelu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kelu/Pods-Kelu.release.xcconfig"; sourceTree = "<group>"; };
 		C049B24D1D2969D1007EE171 /* CALayer+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CALayer+UIColor.h"; path = "Util/Category/CALayer+UIColor.h"; sourceTree = "<group>"; };
@@ -227,6 +238,43 @@
 			name = SocialNetworking;
 			sourceTree = "<group>";
 		};
+		61D777D31E3A08B1000A0088 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C0FF7F051D27F462005FD479 /* HomeViewController.h */,
+				C0FF7F061D27F462005FD479 /* HomeViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		61D777D41E3A08C6000A0088 /* Kelu */ = {
+			isa = PBXGroup;
+			children = (
+				61D777D51E3A0976000A0088 /* KeluViewController.h */,
+				61D777D61E3A0976000A0088 /* KeluViewController.m */,
+			);
+			name = Kelu;
+			sourceTree = "<group>";
+		};
+		61D777D81E3A103B000A0088 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				61D777D91E3A1080000A0088 /* HeaderView.h */,
+				61D777DA1E3A1080000A0088 /* HeaderView.m */,
+				61D777DC1E3A1099000A0088 /* HeaderView.xib */,
+			);
+			name = Header;
+			sourceTree = "<group>";
+		};
+		61D777DE1E3A16A6000A0088 /* CustomEffect */ = {
+			isa = PBXGroup;
+			children = (
+				61D777DF1E3A16D2000A0088 /* ViewCustomEffect.h */,
+				61D777E01E3A16D2000A0088 /* ViewCustomEffect.m */,
+			);
+			name = CustomEffect;
+			sourceTree = "<group>";
+		};
 		91687C17FF053691BAB9B24D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,12 +406,12 @@
 		C0FF7EF01D27D2A8005FD479 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				61D777D41E3A08C6000A0088 /* Kelu */,
+				61D777D31E3A08B1000A0088 /* Home */,
 				C0A158701E39E29E006D6BB3 /* Tabview */,
 				611B61501E390A1D002AD82F /* Alert Controller */,
 				61460B9D1E37D676000CC92F /* Login */,
 				61460B991E37D0FF000CC92F /* SignUp */,
-				C0FF7F051D27F462005FD479 /* HomeViewController.h */,
-				C0FF7F061D27F462005FD479 /* HomeViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -371,6 +419,7 @@
 		C0FF7F001D27EE66005FD479 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				61D777D81E3A103B000A0088 /* Header */,
 				611B61551E390EAA002AD82F /* Spinner */,
 				611B61541E390E93002AD82F /* TumblrMenu */,
 				61460B9E1E37D8D5000CC92F /* SocialNetworking */,
@@ -402,6 +451,7 @@
 		C0FF7F0C1D28C09E005FD479 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				61D777DE1E3A16A6000A0088 /* CustomEffect */,
 				C0A158691E39D1B3006D6BB3 /* KeyChain */,
 				C049B24C1D2969AC007EE171 /* Category */,
 				C0FF7F0D1D28C0B8005FD479 /* ErrorHandler.h */,
@@ -541,6 +591,7 @@
 				61460BA31E37D933000CC92F /* SocialNetworkingView.xib in Resources */,
 				C0FF7F231D294507005FD479 /* JsonContent.json in Resources */,
 				C0FF7ECD1D279988005FD479 /* LaunchScreen.storyboard in Resources */,
+				61D777DD1E3A1099000A0088 /* HeaderView.xib in Resources */,
 				C0FF7ECA1D279988005FD479 /* Assets.xcassets in Resources */,
 				C0FF7EC51D279988005FD479 /* Main.storyboard in Resources */,
 			);
@@ -622,6 +673,7 @@
 				611B61531E390A5D002AD82F /* KeluAlertViewController.m in Sources */,
 				C0FF7F071D27F462005FD479 /* HomeViewController.m in Sources */,
 				611B615B1E390EC2002AD82F /* KeluSpinner.m in Sources */,
+				61D777DB1E3A1080000A0088 /* HeaderView.m in Sources */,
 				61460B9C1E37D12B000CC92F /* SignUpViewController.m in Sources */,
 				611B615A1E390EC2002AD82F /* KeluActivityIndicator.m in Sources */,
 				C0FF7F1A1D28DFF6005FD479 /* JsonTest.m in Sources */,
@@ -634,11 +686,13 @@
 				C0FF7F1D1D28E236005FD479 /* JsonTestData.m in Sources */,
 				C0FF7EF31D27D2D3005FD479 /* LoginViewController.m in Sources */,
 				C0FF7F0A1D28B93B005FD479 /* ApiResponseHandler.m in Sources */,
+				61D777E11E3A16D2000A0088 /* ViewCustomEffect.m in Sources */,
 				C0A158731E39E305006D6BB3 /* KeluTabBarViewController.m in Sources */,
 				611B61621E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.m in Sources */,
 				C049B25A1D2AC414007EE171 /* CHTumblrMenuView.m in Sources */,
 				61460BA11E37D90B000CC92F /* SocialNetworkingView.m in Sources */,
 				C0A158771E39E80A006D6BB3 /* TextModel.m in Sources */,
+				61D777D71E3A0976000A0088 /* KeluViewController.m in Sources */,
 				611B615E1E391015002AD82F /* UIColor+More.m in Sources */,
 				C0A1586E1E39D1B3006D6BB3 /* KKeyChain.m in Sources */,
 			);

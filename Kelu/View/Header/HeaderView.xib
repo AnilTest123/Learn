@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KeluLogo" translatesAutoresizingMaskIntoConstraints="NO" id="gi6-hE-LOQ">
+                    <rect key="frame" x="20" y="0.0" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="e2x-g1-nOM"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kik-J7-9gl" userLabel="App Info View">
+                    <rect key="frame" x="60" y="0.0" width="235" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kelu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pug-CA-iYd">
+                            <rect key="frame" x="10" y="3" width="215" height="17.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speak Locally" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74b-P8-GFX">
+                            <rect key="frame" x="10" y="23" width="215" height="14"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="pug-CA-iYd" firstAttribute="leading" secondItem="Kik-J7-9gl" secondAttribute="leading" constant="10" id="HQC-2Y-0f4"/>
+                        <constraint firstAttribute="trailing" secondItem="pug-CA-iYd" secondAttribute="trailing" constant="10" id="L2f-q5-Xnm"/>
+                        <constraint firstItem="pug-CA-iYd" firstAttribute="top" secondItem="Kik-J7-9gl" secondAttribute="top" constant="3" id="VBy-6V-hYI"/>
+                        <constraint firstItem="74b-P8-GFX" firstAttribute="leading" secondItem="pug-CA-iYd" secondAttribute="leading" id="gEL-xi-cuL"/>
+                        <constraint firstAttribute="bottom" secondItem="74b-P8-GFX" secondAttribute="bottom" constant="3" id="lE9-dA-uxT"/>
+                        <constraint firstItem="74b-P8-GFX" firstAttribute="trailing" secondItem="pug-CA-iYd" secondAttribute="trailing" id="pj2-dG-4k0"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cxo-9a-eMz" userLabel="Right View">
+                    <rect key="frame" x="295" y="0.0" width="60" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf0-mm-Q1e">
+                            <rect key="frame" x="10" y="7.5" width="40" height="25"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="TcU-pn-SiK"/>
+                                <constraint firstAttribute="height" constant="25" id="cl4-Em-sp3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                            <state key="normal" title="Hindi">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="languageButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="vMi-mV-kqb"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Bf0-mm-Q1e" firstAttribute="centerY" secondItem="Cxo-9a-eMz" secondAttribute="centerY" id="XmG-UU-o5y"/>
+                        <constraint firstItem="Bf0-mm-Q1e" firstAttribute="centerX" secondItem="Cxo-9a-eMz" secondAttribute="centerX" id="uBJ-IQ-2yT"/>
+                        <constraint firstAttribute="width" constant="60" id="wS9-oG-GGc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="gi6-hE-LOQ" secondAttribute="bottom" id="2Su-7v-7QW"/>
+                <constraint firstItem="gi6-hE-LOQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="6Id-fn-Evi"/>
+                <constraint firstItem="Cxo-9a-eMz" firstAttribute="leading" secondItem="Kik-J7-9gl" secondAttribute="trailing" id="D7u-kB-Un7"/>
+                <constraint firstItem="gi6-hE-LOQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="F75-Cj-DCe"/>
+                <constraint firstAttribute="bottom" secondItem="Cxo-9a-eMz" secondAttribute="bottom" id="Kaf-Ed-Tzu"/>
+                <constraint firstAttribute="trailing" secondItem="Cxo-9a-eMz" secondAttribute="trailing" constant="20" id="PVq-4H-qj9"/>
+                <constraint firstItem="Cxo-9a-eMz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Xv0-e6-ceb"/>
+                <constraint firstItem="Kik-J7-9gl" firstAttribute="leading" secondItem="gi6-hE-LOQ" secondAttribute="trailing" id="Ymd-ad-NtD"/>
+                <constraint firstItem="Kik-J7-9gl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Z4d-lz-S9O"/>
+                <constraint firstAttribute="bottom" secondItem="Kik-J7-9gl" secondAttribute="bottom" id="kQu-e1-uTu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="languageButton" destination="Bf0-mm-Q1e" id="W4P-uJ-Xnz"/>
+            </connections>
+            <point key="canvasLocation" x="39.5" y="56"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="KeluLogo" width="300" height="300"/>
+    </resources>
+</document>

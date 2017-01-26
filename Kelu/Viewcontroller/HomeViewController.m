@@ -7,32 +7,25 @@
 //
 
 #import "HomeViewController.h"
-#import "ApiResponseHandler.h"
-#import "KeluActivityIndicator.h"
-#import "JsonTest.h"
-#import "CHTumblrMenuView.h"
 #import "TextsResponse.h"
+#import "CHTumblrMenuView.h"
+#import "ContentTableViewCell.h"
 
-@interface HomeViewController ()
+@interface HomeViewController () <UITableViewDelegate,UITableViewDataSource,ContentTableViewCellDelegate>
 {
     NSIndexPath *selectedIndexPath;
     TextsResponse *textsResponse;
 }
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    UIImage *menuImage = [UIImage imageNamed:@"MenuIcon"];
-    menuImage = [menuImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIBarButtonItem * leftItem = [[UIBarButtonItem alloc] initWithImage:menuImage style:UIBarButtonItemStylePlain target:self action:@selector(showMenu:)];
-    self.navigationItem.leftBarButtonItem = leftItem;
-    
-    NSMutableArray *myArray = [[NSMutableArray alloc] init];
-    NSNumber  *myNumber = [NSNumber numberWithFloat:10];
-    [myArray addObject:myNumber];
     [self fetchDataForTheme];
 }
 
@@ -44,22 +37,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self performUpdate];
-}
-
-#pragma mark - Update
--(void)performUpdate
-{
-//    [NSThread sleepForTimeInterval:4];
-//    int i = arc4random() % 100;
-    self.title = [[NSString alloc]initWithFormat:@"Title:1"];
-}
-
-#pragma mark - Show Menu
-- (void)showMenu:(id)sender {
-    
-    //[self.view endEditing:YES];
-    
+    self.title = @"Home";
 }
 
 #pragma mark - Fetch
@@ -143,9 +121,8 @@
     });
 }
 #pragma mark - Delegates
--(void)tappedOnShareForObject:(JsonTest *)obj
+-(void)tappedOnShareForObject:(TextModel *)textModel
 {
-    
     CHTumblrMenuView *menuView = [[CHTumblrMenuView alloc] init];
     //menuView.backgroundImgView.backgroundColor = [UIColor clearColor];
     menuView.backgroundImgView.alpha = 0.3;
@@ -161,15 +138,5 @@
     }];
     [menuView show];
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end
