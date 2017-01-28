@@ -12,6 +12,7 @@
 		611B615B1E390EC2002AD82F /* KeluSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 611B61591E390EC2002AD82F /* KeluSpinner.m */; };
 		611B615E1E391015002AD82F /* UIColor+More.m in Sources */ = {isa = PBXBuildFile; fileRef = 611B615D1E391015002AD82F /* UIColor+More.m */; };
 		611B61621E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 611B61611E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.m */; };
+		6121986D1E3CD35000C0FFFA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6121986C1E3CD35000C0FFFA /* AVFoundation.framework */; };
 		61460B9C1E37D12B000CC92F /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61460B9B1E37D12B000CC92F /* SignUpViewController.m */; };
 		61460BA11E37D90B000CC92F /* SocialNetworkingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61460BA01E37D90B000CC92F /* SocialNetworkingView.m */; };
 		61460BA31E37D933000CC92F /* SocialNetworkingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61460BA21E37D933000CC92F /* SocialNetworkingView.xib */; };
@@ -88,6 +89,7 @@
 		611B615D1E391015002AD82F /* UIColor+More.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+More.m"; path = "Util/Category/UIColor+More.m"; sourceTree = "<group>"; };
 		611B61601E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeluAFHTTPRequestOperationManager.h; path = Model/KeluAFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		611B61611E3911FC002AD82F /* KeluAFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeluAFHTTPRequestOperationManager.m; path = Model/KeluAFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		6121986C1E3CD35000C0FFFA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		61460B9A1E37D12B000CC92F /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = Viewcontroller/SignUp/SignUpViewController.h; sourceTree = "<group>"; };
 		61460B9B1E37D12B000CC92F /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = Viewcontroller/SignUp/SignUpViewController.m; sourceTree = "<group>"; };
 		61460B9F1E37D90B000CC92F /* SocialNetworkingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocialNetworkingView.h; path = View/SocialNetworking/SocialNetworkingView.h; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6121986D1E3CD35000C0FFFA /* AVFoundation.framework in Frameworks */,
 				63F54EACDCDD35105E995035 /* libPods-Kelu.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +389,7 @@
 		A3DEA13355F0EA546C164BB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6121986C1E3CD35000C0FFFA /* AVFoundation.framework */,
 				782D82A9B0C6388151854D49 /* libPods-Kelu.a */,
 			);
 			name = Frameworks;
@@ -589,12 +593,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0FF7EE71D279989005FD479 /* Build configuration list for PBXNativeTarget "Kelu" */;
 			buildPhases = (
-				CF035F6F7B735F94DBB1470C /* 📦 Check Pods Manifest.lock */,
+				CF035F6F7B735F94DBB1470C /* [CP] Check Pods Manifest.lock */,
 				C0FF7EB31D279988005FD479 /* Sources */,
 				C0FF7EB41D279988005FD479 /* Frameworks */,
 				C0FF7EB51D279988005FD479 /* Resources */,
-				6268A9D1AAF739771745F3A3 /* 📦 Embed Pods Frameworks */,
-				C831F6447372172ACE862351 /* 📦 Copy Pods Resources */,
+				6268A9D1AAF739771745F3A3 /* [CP] Embed Pods Frameworks */,
+				C831F6447372172ACE862351 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -714,14 +718,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6268A9D1AAF739771745F3A3 /* 📦 Embed Pods Frameworks */ = {
+		6268A9D1AAF739771745F3A3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -729,14 +733,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kelu/Pods-Kelu-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C831F6447372172ACE862351 /* 📦 Copy Pods Resources */ = {
+		C831F6447372172ACE862351 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -744,19 +748,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kelu/Pods-Kelu-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CF035F6F7B735F94DBB1470C /* 📦 Check Pods Manifest.lock */ = {
+		CF035F6F7B735F94DBB1470C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -961,7 +965,7 @@
 				GCC_PREFIX_HEADER = "Kelu-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/Headers\"/**",
-					$SOURCE_ROOT/Libs/include,
+					"$SOURCE_ROOT/Libs/include",
 					"\"$(SRCROOT)/Pods\"",
 				);
 				INFOPLIST_FILE = Kelu/Info.plist;
@@ -993,7 +997,7 @@
 				GCC_PREFIX_HEADER = "Kelu-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/Headers\"/**",
-					$SOURCE_ROOT/Libs/include,
+					"$SOURCE_ROOT/Libs/include",
 					"\"$(SRCROOT)/Pods\"",
 				);
 				INFOPLIST_FILE = Kelu/Info.plist;

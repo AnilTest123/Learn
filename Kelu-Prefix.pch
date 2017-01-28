@@ -12,6 +12,7 @@
 #import "KKeyChain.h"
 #import "KeluConstants.h"
 #import "ViewCustomEffect.h"
+#import <AVFoundation/AVFoundation.h>
 
 #ifdef DEBUG
 #define DEBUGLOG NSLog

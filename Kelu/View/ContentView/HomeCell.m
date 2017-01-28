@@ -9,6 +9,9 @@
 #import "HomeCell.h"
 
 @interface HomeCell()
+{
+    AVAudioPlayer *audioPlayer;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *text;
 @property (weak, nonatomic) IBOutlet UILabel *translatedText;
@@ -78,17 +81,54 @@
 
 #pragma mark - Actions
 
-- (IBAction)playButtonPressed:(id)sender {
+- (IBAction)playButtonPressed:(id)sender
+{
+    [self performSelectorInBackground:@selector(playAudioData) withObject:nil];
 }
 
-- (IBAction)favButtonPressed:(id)sender {
+- (IBAction)favButtonPressed:(id)sender
+{
+    
 }
 
-- (IBAction)shareButtonPressed:(id)sender {
+- (IBAction)shareButtonPressed:(id)sender
+{
     if([_delegate respondsToSelector:@selector(tappedOnShareForObject:)])
     {
         [_delegate tappedOnShareForObject:_textModel];
     }
+}
+
+#pragma mark - Private Method
+
+- (void)playAudioData
+{
+    NSString *urlString = [NSString  stringWithFormat:@"https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-574771754661/YAPPY_SOUND/%@/%@_%@.mp3", _textModel.dest_lan_key, _textModel.text_code, _textModel.dest_lan_key];
+    NSURL *audioFileURL = [NSURL URLWithString:urlString];
+    
+    NSData *audioData = [NSData dataWithContentsOfURL:audioFileURL];
+    if (!audioData)
+    {
+        NSLog(@"%@", audioData);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ([_delegate respondsToSelector:@selector(showAudioFileNotFoundToast)])
+            {
+                [_delegate showAudioFileNotFoundToast];
+            }
+        });
+        return;
+    }
+    NSError *error;
+    
+    audioPlayer = [[AVAudioPlayer alloc] initWithData:audioData error:&error];
+    audioPlayer.numberOfLoops = 0;
+    audioPlayer.volume = 1.0f;
+    [audioPlayer prepareToPlay];
+    
+    if (audioPlayer == nil)
+        NSLog(@"%@", [error description]);
+    else
+        [audioPlayer play];
 }
 
 @end

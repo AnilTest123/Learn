@@ -9,6 +9,7 @@
 #import "HomeTableView.h"
 #import "HomeCell.h"
 #import "CHTumblrMenuView.h"
+//#import "UIView+Toast.h"
 
 @interface HomeTableView() <UITableViewDelegate, UITableViewDataSource, HomeCellDelegate>
 {
@@ -109,6 +110,7 @@
 }
 
 #pragma mark - Delegates
+#pragma mark HomeCell Delegate
 -(void)tappedOnShareForObject:(TextModel *)textModel
 {
     CHTumblrMenuView *menuView = [[CHTumblrMenuView alloc] init];
@@ -125,6 +127,13 @@
         
     }];
     [menuView show];
+}
+
+- (void)showAudioFileNotFoundToast
+{
+    //[self makeToast:@"No audio available for this sentence"
+    //       duration:3.0
+    //       position:CSToastPositionBottom];
 }
 
 
