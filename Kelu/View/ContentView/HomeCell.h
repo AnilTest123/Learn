@@ -12,6 +12,7 @@
 @protocol HomeCellDelegate <NSObject>
 
 -(void)tappedOnShareForObject:(TextModel*)obj;
+-(void)showAudioFileNotFoundToast;
 
 @end
 

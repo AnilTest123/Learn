@@ -6,53 +6,53 @@
 	<dict>
 		<key>AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>DGActivityIndicatorView.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>JSONModel.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-Kelu.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>REFrostedViewController.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>09FA060F1A0492FB25232F489AC4E573</key>
+		<key>38D2C28C26CAFF86416ECB484CEAAE2C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>12AC35F9C569FA2A4543EFEDD802D2C9</key>
+		<key>49B8B4B45721D0D29B188F92F97184FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
+		<key>53E7E9D15B3EFBCB998E237DE5EA8695</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B2E97A8B11C43705574542D223CB9B6</key>
+		<key>AFAFB55453D161D2BB5CFB30C68A54D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F3077636EFC62FCBA8384650080CF0D6</key>
+		<key>DAB2BD0E49604BCC501EEFC51E6D8D69</key>
 		<dict>
 			<key>primary</key>
 			<true/>
