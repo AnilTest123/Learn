@@ -14,7 +14,4 @@
 - (void)updateCellUIWithLangugeModel:(LanguageModel *)languageModel;
 - (LanguageModel *)getLanguageModel;
 
-- (void)updateCellUIWithLangugeTableData:(LanguageTable *)languageTableData;
-- (LanguageTable *)getLanguageTableData;
-
 @end

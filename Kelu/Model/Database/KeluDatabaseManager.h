@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LanguageTable.h"
+#import "ThemeTable.h"
 
 @interface KeluDatabaseManager : NSObject
 
@@ -24,5 +25,6 @@
 
 #pragma mark - Query String Generation
 + (NSString *)getSelectQueryForTableName:(NSString *)tableName;
++ (NSString *)getSelectQueryForTableName:(NSString *)tableName withWhereValue:(NSString *)value forField:(NSString *)field;
 
 @end

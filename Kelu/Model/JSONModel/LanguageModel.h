@@ -7,7 +7,7 @@
 //
 
 #import <JSONModel/JSONModel.h>
-#import "LanguageTable.h"
+
 @protocol LanguageModel
 
 @end

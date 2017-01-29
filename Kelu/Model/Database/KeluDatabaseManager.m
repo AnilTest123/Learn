@@ -81,6 +81,11 @@ static dispatch_once_t dispatchOnce;
     return [NSString stringWithFormat:@"select * from %@", tableName];
 }
 
++ (NSString *)getSelectQueryForTableName:(NSString *)tableName withWhereValue:(NSString *)value forField:(NSString *)field
+{
+    return [NSString stringWithFormat:@"select * from %@ where %@=%@", tableName, field, value];
+}
+
 #pragma mark - Private Methods
 - (void)copyDatabaseIntoDocumentsDirectory
 {

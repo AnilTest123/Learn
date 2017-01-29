@@ -78,7 +78,7 @@
 - (void)initializeVariable
 {
     _refreshRequired = YES;
-    //_dbManager = [KeluDatabaseManager sharedDatabaseManagerInstance];
+    _dbManager = [KeluDatabaseManager sharedDatabaseManagerInstance];
     
 }
 

@@ -36,6 +36,7 @@
 		61F127821E3D98160043B74D /* KeluDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F127811E3D98160043B74D /* KeluDatabaseManager.m */; };
 		61F127841E3D9DE80043B74D /* FT_DB2.db in Resources */ = {isa = PBXBuildFile; fileRef = 61F127831E3D9DE80043B74D /* FT_DB2.db */; };
 		61F127881E3DBF340043B74D /* LanguageTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F127871E3DBF340043B74D /* LanguageTable.m */; };
+		61F1278B1E3E19840043B74D /* ThemeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F1278A1E3E19840043B74D /* ThemeTable.m */; };
 		63F54EACDCDD35105E995035 /* libPods-Kelu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 782D82A9B0C6388151854D49 /* libPods-Kelu.a */; };
 		C049B24F1D2969D1007EE171 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C049B24E1D2969D1007EE171 /* CALayer+UIColor.m */; };
 		C049B2521D2AC3C5007EE171 /* CHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C049B2511D2AC3C5007EE171 /* CHViewController.m */; };
@@ -136,6 +137,8 @@
 		61F127831E3D9DE80043B74D /* FT_DB2.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = FT_DB2.db; path = Model/Database/FT_DB2.db; sourceTree = "<group>"; };
 		61F127861E3DBF340043B74D /* LanguageTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanguageTable.h; path = Model/Database/TableClass/LanguageTable.h; sourceTree = "<group>"; };
 		61F127871E3DBF340043B74D /* LanguageTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanguageTable.m; path = Model/Database/TableClass/LanguageTable.m; sourceTree = "<group>"; };
+		61F127891E3E19840043B74D /* ThemeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeTable.h; path = Model/Database/TableClass/ThemeTable.h; sourceTree = "<group>"; };
+		61F1278A1E3E19840043B74D /* ThemeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeTable.m; path = Model/Database/TableClass/ThemeTable.m; sourceTree = "<group>"; };
 		782D82A9B0C6388151854D49 /* libPods-Kelu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Kelu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49F8E18B62DD887A9CF4830 /* Pods-Kelu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kelu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kelu/Pods-Kelu.release.xcconfig"; sourceTree = "<group>"; };
 		C049B24D1D2969D1007EE171 /* CALayer+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CALayer+UIColor.h"; path = "Util/Category/CALayer+UIColor.h"; sourceTree = "<group>"; };
@@ -404,6 +407,8 @@
 			children = (
 				61F127861E3DBF340043B74D /* LanguageTable.h */,
 				61F127871E3DBF340043B74D /* LanguageTable.m */,
+				61F127891E3E19840043B74D /* ThemeTable.h */,
+				61F1278A1E3E19840043B74D /* ThemeTable.m */,
 			);
 			name = TableClass;
 			sourceTree = "<group>";
@@ -846,6 +851,7 @@
 				61D777D71E3A0976000A0088 /* KeluViewController.m in Sources */,
 				611B615E1E391015002AD82F /* UIColor+More.m in Sources */,
 				C0A1586E1E39D1B3006D6BB3 /* KKeyChain.m in Sources */,
+				61F1278B1E3E19840043B74D /* ThemeTable.m in Sources */,
 				61D778071E3A616F000A0088 /* MyStuffViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

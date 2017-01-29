@@ -12,7 +12,8 @@
 
 @interface ThemeViewController () <ThemeTableViewDelegate>
 {
-    ThemeResponse *themeResponse;
+    NSArray *themes;
+    NSArray *arrayOfThemes;
 }
 
 @property (weak, nonatomic) IBOutlet ThemeTableView *themeTableView;
@@ -29,7 +30,8 @@
     if (self.refreshRequired)
     {
         self.refreshRequired = NO;
-        [self fetchDataForTheme];
+        [self fetchThemesFromDB];
+        //[self fetchDataForTheme];
     }
 }
 
@@ -39,7 +41,8 @@
 }
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -92,7 +95,8 @@
         withSuccessCompletionBlock:^(NSString *responseString) {
             
             [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
-            themeResponse = [[ThemeResponse alloc] initWithString:responseString error:nil];
+            ThemeResponse *themeResponse = [[ThemeResponse alloc] initWithString:responseString error:nil];
+            themes = themeResponse.objects;
             [self reload];
             
         } withFailureCompletionBlock:^(NSError *error) {
@@ -100,6 +104,21 @@
             [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
             [KeluAlertViewController showAlertControllerWithTitle:@"Error"                                                                                                 message:error.localizedDescription acceptActionTitle:@"OK"                                    acceptActionBlock:nil dismissActionTitle:nil dismissActionBlock:nil presentingViewController:self];
         }];
+}
+
+- (void)fetchThemesFromDB
+{
+    NSString *selectedLanguage = [KKeyChain loadKeyChainValueForKey:kKeychainSelectedLanguageKey];
+    NSString *whereEqualValue = [NSString stringWithFormat:@"\"EN2%@\"", selectedLanguage];
+    NSString *query = [KeluDatabaseManager getSelectQueryForTableName:kThemeTableName withWhereValue:whereEqualValue forField:kTheme_TransKey];
+    
+    // Get the results.
+    if (arrayOfThemes != nil) {
+        arrayOfThemes = nil;
+    }
+    arrayOfThemes = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
+    themes = [self convertArrayOfThemesToThemesModelData];
+    [self reload];
 }
 
 #pragma mark - Parameters
@@ -110,11 +129,42 @@
     return parameters;
 }
 
-#pragma mark - Private Method
+#pragma mark - Private Methods
+#pragma mark Reload
 
 - (void)reload
 {
-    self.themeTableView.themes = themeResponse.objects;
+    self.themeTableView.themes = themes;
+}
+
+#pragma mark Language Table
+
+- (NSArray *)convertArrayOfThemesToThemesModelData
+{
+    NSMutableArray *convertedThemes = [[NSMutableArray alloc] init];
+    for (int count = 0; count < [arrayOfThemes count]; count ++)
+    {
+        ThemeTable *themeTable = [self createThemeTableObjectForIndex:count];
+        ThemeModel *model = [ThemeModel convertToThemeJsonModelFromDBThemeTable:themeTable];
+        [convertedThemes addObject:model];
+    }
+    return convertedThemes;
+}
+
+- (ThemeTable *)createThemeTableObjectForIndex:(NSInteger)index
+{
+    
+    NSInteger indexOfTagWeight = [self.dbManager.arrColumnNames indexOfObject:kTheme_ThemeWeight];
+    NSInteger indexOfTagCode = [self.dbManager.arrColumnNames indexOfObject:kTheme_TagCode];
+    NSInteger indexOfTagText = [self.dbManager.arrColumnNames indexOfObject:kTheme_TagText];
+    NSInteger indexOfTransKey = [self.dbManager.arrColumnNames indexOfObject:kTheme_TransKey];
+    
+    ThemeTable *themeTable = [[ThemeTable alloc] init];
+    themeTable.themeWeight = [[arrayOfThemes objectAtIndex:index] objectAtIndex:indexOfTagWeight];
+    themeTable.themeTagText = [[arrayOfThemes objectAtIndex:index] objectAtIndex:indexOfTagText];
+    themeTable.themeTagCode = [[arrayOfThemes objectAtIndex:index] objectAtIndex:indexOfTagCode];
+    themeTable.themeTransKey = [[arrayOfThemes objectAtIndex:index] objectAtIndex:indexOfTransKey];
+    return themeTable;
 }
 
 

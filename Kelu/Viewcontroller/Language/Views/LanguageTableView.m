@@ -54,7 +54,6 @@
 {
     LanguageCell *cell = (LanguageCell *)[tableView dequeueReusableCellWithIdentifier:@"LanguageCell"];
     [cell updateCellUIWithLangugeModel:(LanguageModel *)[_languages objectAtIndex:indexPath.section]];
-    //[cell updateCellUIWithLangugeTableData:(LanguageTable *)[_languages objectAtIndex:indexPath.section]];
     return cell;
 }
 
@@ -79,10 +78,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LanguageCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    LanguageTable *languageTable = [cell getLanguageTableData];
+    LanguageModel *languageModel = [cell getLanguageModel];
     if ([_languageDelegate respondsToSelector:@selector(setSelectedLanguage:)])
     {
-        [_languageDelegate setSelectedLanguage:languageTable];
+        [_languageDelegate setSelectedLanguage:languageModel];
     }
 }
 

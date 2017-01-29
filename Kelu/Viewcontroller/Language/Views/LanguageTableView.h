@@ -11,7 +11,7 @@
 
 @protocol LanguageTableViewDelegate <NSObject>
 
-- (void)setSelectedLanguage:(LanguageTable *)language;
+- (void)setSelectedLanguage:(LanguageModel *)language;
 
 @end
 
