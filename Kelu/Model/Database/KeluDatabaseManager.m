@@ -86,6 +86,11 @@ static dispatch_once_t dispatchOnce;
     return [NSString stringWithFormat:@"select * from %@ where %@=%@", tableName, field, value];
 }
 
++ (NSString *)getSelectQueryForTableName:(NSString *)tableName withWhereInValues:(NSArray *)inValues whereEqualValue:(NSString *)equalValue forInField:(NSString *)inField andEqualField:(NSString *)equalField
+{
+    return [NSString stringWithFormat:@"select * from %@ where %@ IN ('%@') AND %@=%@", tableName, inField, [inValues componentsJoinedByString:@"','"], equalField, equalValue];
+}
+
 #pragma mark - Private Methods
 - (void)copyDatabaseIntoDocumentsDirectory
 {
