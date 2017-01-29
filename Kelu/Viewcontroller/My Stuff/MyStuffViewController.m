@@ -8,9 +8,15 @@
 
 #import "MyStuffViewController.h"
 #import "LoginViewController.h"
+typedef enum {
+    kQuestionsForMe,
+    kMyQuestions,
+    kMyAnswers,
+    kFavorites,
+}kSegmentedControlIndex;
 
 @interface MyStuffViewController ()<LoginViewControllerDelegate>
-
+@property(nonatomic,strong)IBOutlet UISegmentedControl *segmentedControl;
 @end
 
 @implementation MyStuffViewController
@@ -69,6 +75,11 @@
         [self.navigationController showViewController:loginViewController sender:self];
     else
         [self.navigationController pushViewController:loginViewController animated:YES];
+}
+
+#pragma mark - Actions
+- (IBAction)actionOnSegmentedControl:(id)sender {
+    
 }
 
 #pragma mark - Delegate
