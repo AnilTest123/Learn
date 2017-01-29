@@ -778,24 +778,6 @@
             </objects>
             <point key="canvasLocation" x="-1786" y="1761"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="DOe-4f-KX0">
-            <objects>
-                <navigationController storyboardIdentifier="SignUpNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="BiZ-nt-y91" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qr4-RV-b6j">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="2RR-n9-RnR" kind="relationship" relationship="rootViewController" id="yhd-Jr-AxD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2DA-a5-0uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-522.39999999999998" y="-305.39730134932535"/>
-        </scene>
         <!--Home-->
         <scene sceneID="HDC-eK-3l8">
             <objects>

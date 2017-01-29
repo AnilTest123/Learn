@@ -7,6 +7,7 @@
 //
 
 #import "MyStuffViewController.h"
+#import "SignUpViewController.h"
 
 @interface MyStuffViewController ()
 
@@ -33,6 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self validateLogin];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,14 +42,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - initialization
+
+-(void)validateLogin
+{
+    if ([(NSString*)[KKeyChain loadKeyChainValueForKey:kKeychainHasLoggedIn] isEqualToString:@"YES"])
+    {
+        [self initializeMyStuff];
+    }
+    else
+    {
+        [self initializeLogin];
+    }
+}
+
+-(void)initializeMyStuff
+{
+    
+}
+
+-(void)initializeLogin
+{
+    SignUpViewController *signUpController = [self.storyboard instantiateViewControllerWithIdentifier:@"SignUpViewController"];
+    if([self.navigationController respondsToSelector:@selector(showViewController:sender:)])
+        [self.navigationController showViewController:signUpController sender:self];
+    else
+        [self.navigationController pushViewController:signUpController animated:YES];
+}
 
 @end

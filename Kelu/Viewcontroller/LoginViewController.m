@@ -102,8 +102,9 @@
         [KeluActivityIndicator showIndicator:self.view animated:YES];
         [[ApiResponseHandler sharedApiResponseHandlerInstance] signInUserWith:[self getUserSignInParameters]
                                                      withSuccessCompletionBlock:^(NSString *responseData) {
-                                                         [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
+                                                        [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
                                                          [KKeyChain saveKeyChainValue:@"YES" forKey:kKeychainHasLoggedIn];
+                                                         [KKeyChain saveKeyChainValue:self.email.text forKey:kKeychainLoggedInUser];
                                                          NSLog(@"%@",responseData);
                                                          [((AppDelegate*)[[UIApplication sharedApplication] delegate]) instantiateViewController];
                                                          

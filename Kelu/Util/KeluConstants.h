@@ -16,6 +16,9 @@ static NSInteger const kUnsupportedURLError = -1002;
 #define kKeychainSelectedLanguageKey @"SelectedLanguageKey"
 #define kKeychainSelectedLanguageName @"SelectedLanguageName"
 #define kKeychainSelectedThemeTag @"SelectedThemeTag"
+#define kKeychainLoggedInUser @"LoggedInUser"
+
+static NSString *kkeluMyStuffTitle = @"My Stuff";
 
 static NSString *keluHeaderViewUpdateNotification = @"Reload Header View";
 static NSString *keluThemeChangeNotification = @"Theme Changed";
