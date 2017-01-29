@@ -7,9 +7,9 @@
 //
 
 #import "MyStuffViewController.h"
-#import "SignUpViewController.h"
+#import "LoginViewController.h"
 
-@interface MyStuffViewController ()
+@interface MyStuffViewController ()<LoginViewControllerDelegate>
 
 @end
 
@@ -63,11 +63,19 @@
 
 -(void)initializeLogin
 {
-    SignUpViewController *signUpController = [self.storyboard instantiateViewControllerWithIdentifier:@"SignUpViewController"];
+    LoginViewController *loginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    loginViewController.delegate = self;
     if([self.navigationController respondsToSelector:@selector(showViewController:sender:)])
-        [self.navigationController showViewController:signUpController sender:self];
+        [self.navigationController showViewController:loginViewController sender:self];
     else
-        [self.navigationController pushViewController:signUpController animated:YES];
+        [self.navigationController pushViewController:loginViewController animated:YES];
+}
+
+#pragma mark - Delegate
+#pragma mark LoginViewController Delegate
+-(void)loginSuccessful
+{
+    [self validateLogin];
 }
 
 @end
