@@ -53,8 +53,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LanguageCell *cell = (LanguageCell *)[tableView dequeueReusableCellWithIdentifier:@"LanguageCell"];
-    //[cell updateCellUIWithLangugeModel:(LanguageModel *)[_languages objectAtIndex:indexPath.section]];
-    [cell updateCellUIWithLangugeTableData:(LanguageTable *)[_languages objectAtIndex:indexPath.section]];
+    [cell updateCellUIWithLangugeModel:(LanguageModel *)[_languages objectAtIndex:indexPath.section]];
+    //[cell updateCellUIWithLangugeTableData:(LanguageTable *)[_languages objectAtIndex:indexPath.section]];
     return cell;
 }
 

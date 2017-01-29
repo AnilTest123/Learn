@@ -12,8 +12,9 @@
 
 @interface LanguageViewController () <LanguageTableViewDelegate>
 {
-    LanguageResponse *languageResponse;
+    //LanguageResponse *languageResponse;
     KeluDatabaseManager *dbManager;
+    NSMutableArray *languages;
 }
 
 @property (weak, nonatomic) IBOutlet LanguageTableView *languageTableView;
@@ -99,7 +100,8 @@
      {
                                                         
         [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
-        languageResponse = [[LanguageResponse alloc] initWithString:responseString error:nil];
+        LanguageResponse *languageResponse = [[LanguageResponse alloc] initWithString:responseString error:nil];
+         languages = languageResponse.language;
         [self reload];
         
     } withFailureCompletionBlock:^(NSError *error) {
@@ -118,6 +120,7 @@
         self.arrLanguages = nil;
     }
     self.arrLanguages = [[NSArray alloc] initWithArray:[dbManager loadDataFromDB:query]];
+    languages = [self convertArrayOfLanguagesToLanguageModelData];
     [self reload];
 }
 
@@ -126,22 +129,23 @@
 - (void)reload
 {
     //self.languageTableView.languages = languageResponse.language;
-    NSArray *arrayOfLanguages = [self convertArrayOfLanguagesToLanguageTableData];
-    self.languageTableView.languages = arrayOfLanguages;
+    
+    self.languageTableView.languages = languages;
 }
 
 #pragma mark - Private Methods
 #pragma mark Language Table
 
-- (NSArray *)convertArrayOfLanguagesToLanguageTableData
+- (NSArray *)convertArrayOfLanguagesToLanguageModelData
 {
-    NSMutableArray *languages = [[NSMutableArray alloc] init];
+    NSMutableArray *convertedLanguages = [[NSMutableArray alloc] init];
     for (int count = 0; count < [self.arrLanguages count]; count ++)
     {
         LanguageTable *languageTable = [self createLanguageTableObjectForIndex:count];
-        [languages addObject:languageTable];
+        LanguageModel *model = [LanguageModel convertToLangugeJsonModelFromDBLanguageTable:languageTable];
+        [convertedLanguages addObject:model];
     }
-    return languages;
+    return convertedLanguages;
 }
 
 - (LanguageTable *)createLanguageTableObjectForIndex:(NSInteger)index

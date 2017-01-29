@@ -7,7 +7,7 @@
 //
 
 #import <JSONModel/JSONModel.h>
-
+#import "LanguageTable.h"
 @protocol LanguageModel
 
 @end
@@ -18,5 +18,7 @@
 @property(nonatomic,strong)NSString<Optional>*lan_key;
 @property(nonatomic,strong)NSString<Optional>*language;
 @property(nonatomic,strong)NSString<Optional>*resource_uri;
+
++(LanguageModel*)convertToLangugeJsonModelFromDBLanguageTable:(LanguageTable*)languageTable;
 
 @end
