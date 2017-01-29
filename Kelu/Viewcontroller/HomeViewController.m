@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet HomeTableView *homeTableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, strong) NSArray *arrPeopleInfo;
 
 @end
 

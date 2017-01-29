@@ -13,10 +13,12 @@
 @interface LanguageViewController () <LanguageTableViewDelegate>
 {
     LanguageResponse *languageResponse;
+    KeluDatabaseManager *dbManager;
 }
 
 @property (weak, nonatomic) IBOutlet LanguageTableView *languageTableView;
 @property (weak, nonatomic) IBOutlet UIView *headingView;
+@property (nonatomic, strong) NSArray *arrLanguages;
 
 @end
 
@@ -29,7 +31,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initialize];
-    [self fetchLanguages];
+    //[self fetchLanguages];
+    [self fetchLanguagesFromDB];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,8 +55,14 @@
 
 - (void)initialize
 {
+    [self initializeVariables];
     [self customizeHeadingView];
     [self initializeLanguageTableView];
+}
+
+- (void)initializeVariables
+{
+    dbManager = [KeluDatabaseManager sharedDatabaseManagerInstance];
 }
 
 - (void)customizeHeadingView
@@ -70,10 +79,10 @@
 
 #pragma mark - Language Table View Deleages
 
-- (void)setSelectedLanguage:(LanguageModel *)language
+- (void)setSelectedLanguage:(LanguageTable *)language
 {
-    [KKeyChain saveKeyChainValue:language.lan_key forKey:kKeychainSelectedLanguageKey];
-    [KKeyChain saveKeyChainValue:language.language forKey:kKeychainSelectedLanguageName];
+    [KKeyChain saveKeyChainValue:language.languageKey forKey:kKeychainSelectedLanguageKey];
+    [KKeyChain saveKeyChainValue:language.languageText forKey:kKeychainSelectedLanguageName];
     [[NSNotificationCenter defaultCenter] postNotificationName:keluHeaderViewUpdateNotification object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -100,11 +109,51 @@
     }];
 }
 
+- (void)fetchLanguagesFromDB
+{
+    NSString *query = [KeluDatabaseManager getSelectQueryForTableName:kLanguageTableName];
+    
+    // Get the results.
+    if (self.arrLanguages != nil) {
+        self.arrLanguages = nil;
+    }
+    self.arrLanguages = [[NSArray alloc] initWithArray:[dbManager loadDataFromDB:query]];
+    [self reload];
+}
+
 #pragma mark - Private Method
 
 - (void)reload
 {
-    self.languageTableView.languages = languageResponse.language;
+    //self.languageTableView.languages = languageResponse.language;
+    NSArray *arrayOfLanguages = [self convertArrayOfLanguagesToLanguageTableData];
+    self.languageTableView.languages = arrayOfLanguages;
 }
+
+#pragma mark - Private Methods
+#pragma mark Language Table
+
+- (NSArray *)convertArrayOfLanguagesToLanguageTableData
+{
+    NSMutableArray *languages = [[NSMutableArray alloc] init];
+    for (int count = 0; count < [self.arrLanguages count]; count ++)
+    {
+        LanguageTable *languageTable = [self createLanguageTableObjectForIndex:count];
+        [languages addObject:languageTable];
+    }
+    return languages;
+}
+
+- (LanguageTable *)createLanguageTableObjectForIndex:(NSInteger)index
+{
+    LanguageTable *languageTable = [[LanguageTable alloc] init];
+    NSInteger indexOfLanguageKey = [dbManager.arrColumnNames indexOfObject:kLanguage_LangugeKey];
+    NSInteger indexOfLanguageText = [dbManager.arrColumnNames indexOfObject:kLanguage_LangugeText];
+    languageTable.languageKey = [[self.arrLanguages objectAtIndex:index] objectAtIndex:indexOfLanguageKey];
+    languageTable.languageText = [[self.arrLanguages objectAtIndex:index] objectAtIndex:indexOfLanguageText];
+    return languageTable;
+    
+}
+
 
 @end

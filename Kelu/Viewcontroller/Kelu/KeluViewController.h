@@ -11,6 +11,7 @@
 @interface KeluViewController : UIViewController
 
 @property (nonatomic) BOOL refreshRequired;
+@property (nonatomic, strong) KeluDatabaseManager *dbManager;
 
 #pragma mark - Initialization
 

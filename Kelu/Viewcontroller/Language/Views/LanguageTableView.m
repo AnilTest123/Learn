@@ -10,6 +10,9 @@
 #import "LanguageCell.h"
 
 @interface LanguageTableView ()<UITableViewDelegate, UITableViewDataSource>
+{
+    
+}
 
 @end
 
@@ -50,7 +53,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LanguageCell *cell = (LanguageCell *)[tableView dequeueReusableCellWithIdentifier:@"LanguageCell"];
-    [cell updateCellUIWithLangugeModel:(LanguageModel *)[_languages objectAtIndex:indexPath.section]];
+    //[cell updateCellUIWithLangugeModel:(LanguageModel *)[_languages objectAtIndex:indexPath.section]];
+    [cell updateCellUIWithLangugeTableData:(LanguageTable *)[_languages objectAtIndex:indexPath.section]];
     return cell;
 }
 
@@ -75,10 +79,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LanguageCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    LanguageModel *languageModel = [cell getLanguageModel];
+    LanguageTable *languageTable = [cell getLanguageTableData];
     if ([_languageDelegate respondsToSelector:@selector(setSelectedLanguage:)])
     {
-        [_languageDelegate setSelectedLanguage:languageModel];
+        [_languageDelegate setSelectedLanguage:languageTable];
     }
 }
 
@@ -91,5 +95,7 @@
         [self reloadData];
     });
 }
+
+#pragma mark - Private Method
 
 @end

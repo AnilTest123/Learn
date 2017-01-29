@@ -11,6 +11,7 @@
 @interface LanguageCell ()
 {
     LanguageModel *language;
+    LanguageTable *languageTable;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *languageName;
@@ -42,6 +43,20 @@
 - (LanguageModel *)getLanguageModel
 {
     return language;
+}
+
+#pragma mark - Cell UI
+
+- (void)updateCellUIWithLangugeTableData:(LanguageTable *)languageTableData
+{
+    languageTable = languageTableData;
+    self.languageName.text = languageTable.languageText;
+}
+
+#pragma mark - Getter method
+- (LanguageTable *)getLanguageTableData
+{
+    return languageTable;
 }
 
 @end
