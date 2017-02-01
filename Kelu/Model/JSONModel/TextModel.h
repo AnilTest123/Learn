@@ -21,4 +21,7 @@
 @property(nonatomic,strong)NSString<Optional>*sound_file_url;
 @property(nonatomic,strong)NSString<Optional>*text;
 @property(nonatomic,strong)NSString<Optional>*text_code;
+
++ (TextModel *)convertToTextJsonModelFromDBTTextTable:(TextTable *)textTable;
+
 @end

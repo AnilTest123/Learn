@@ -7,6 +7,8 @@
 //
 
 #import "ThemeCell.h"
+#import "TextThemeTable.h"
+#import "TextModel.h"
 
 @interface ThemeCell ()
 {
@@ -37,6 +39,33 @@
 {
     theme = themeModel;
     self.themeName.text = theme.tag;
+    NSArray *textModels = [TextThemeTable getTextModelForThemeTag:theme.tag_code withSelectedLanguage:[KKeyChain loadKeyChainValueForKey:kKeychainSelectedLanguageKey] dbManager:[KeluDatabaseManager sharedDatabaseManagerInstance]];
+    [self updateThemeSampleWithTextModels:textModels];
+}
+
+- (void)updateThemeSampleWithTextModels:(NSArray *)textModels
+{
+    NSString *themeSampleData = @"";
+    if ([textModels count])
+    {
+        for (int count = 0; count < [textModels count]; count++)
+        {
+            TextModel *textModel = (TextModel *)[textModels objectAtIndex:count];
+            if ([themeSampleData length])
+            {
+                themeSampleData = [themeSampleData stringByAppendingString:[NSString stringWithFormat:@", %@", textModel.text]];
+            }
+            else
+            {
+                themeSampleData = textModel.text;
+            }
+            if (count == 3)
+            {
+                break;
+            }
+        }
+    }
+    self.themeSample.text = themeSampleData;
 }
 
 #pragma mark - Getter method

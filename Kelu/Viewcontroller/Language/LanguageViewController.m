@@ -12,7 +12,9 @@
 
 @interface LanguageViewController () <LanguageTableViewDelegate>
 {
-    LanguageResponse *languageResponse;
+    KeluDatabaseManager *dbManager;
+    NSArray *languages;
+    NSArray *arrayOfLanguages;
 }
 
 @property (weak, nonatomic) IBOutlet LanguageTableView *languageTableView;
@@ -29,7 +31,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initialize];
-    [self fetchLanguages];
+    //[self fetchLanguages];
+    [self fetchLanguagesFromDB];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,8 +55,14 @@
 
 - (void)initialize
 {
+    [self initializeVariables];
     [self customizeHeadingView];
     [self initializeLanguageTableView];
+}
+
+- (void)initializeVariables
+{
+    dbManager = [KeluDatabaseManager sharedDatabaseManagerInstance];
 }
 
 - (void)customizeHeadingView
@@ -90,7 +99,8 @@
      {
                                                         
         [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
-        languageResponse = [[LanguageResponse alloc] initWithString:responseString error:nil];
+        LanguageResponse *languageResponse = [[LanguageResponse alloc] initWithString:responseString error:nil];
+         languages = languageResponse.language;
         [self reload];
         
     } withFailureCompletionBlock:^(NSError *error) {
@@ -100,11 +110,50 @@
     }];
 }
 
+- (void)fetchLanguagesFromDB
+{
+    NSString *query = [KeluDatabaseManager getSelectQueryForTableName:kLanguageTableName];
+    
+    // Get the results.
+    if (arrayOfLanguages != nil) {
+        arrayOfLanguages = nil;
+    }
+    arrayOfLanguages = [[NSArray alloc] initWithArray:[dbManager loadDataFromDB:query]];
+    languages = [self convertArrayOfLanguagesToLanguageModelData];
+    [self reload];
+}
+
 #pragma mark - Private Method
 
+#pragma mark Reload
 - (void)reload
 {
-    self.languageTableView.languages = languageResponse.language;
+    self.languageTableView.languages = languages;
 }
+
+#pragma mark Language Table
+- (NSArray *)convertArrayOfLanguagesToLanguageModelData
+{
+    NSMutableArray *convertedLanguages = [[NSMutableArray alloc] init];
+    for (int count = 0; count < [arrayOfLanguages count]; count ++)
+    {
+        LanguageTable *languageTable = [self createLanguageTableObjectForIndex:count];
+        LanguageModel *model = [LanguageModel convertToLangugeJsonModelFromDBLanguageTable:languageTable];
+        [convertedLanguages addObject:model];
+    }
+    return convertedLanguages;
+}
+
+- (LanguageTable *)createLanguageTableObjectForIndex:(NSInteger)index
+{
+    LanguageTable *languageTable = [[LanguageTable alloc] init];
+    NSInteger indexOfLanguageKey = [dbManager.arrColumnNames indexOfObject:kLanguage_LangugeKey];
+    NSInteger indexOfLanguageText = [dbManager.arrColumnNames indexOfObject:kLanguage_LangugeText];
+    languageTable.languageKey = [[arrayOfLanguages objectAtIndex:index] objectAtIndex:indexOfLanguageKey];
+    languageTable.languageText = [[arrayOfLanguages objectAtIndex:index] objectAtIndex:indexOfLanguageText];
+    return languageTable;
+    
+}
+
 
 @end

@@ -19,4 +19,6 @@
 @property(nonatomic,strong)NSString<Optional>*language;
 @property(nonatomic,strong)NSString<Optional>*resource_uri;
 
++(LanguageModel*)convertToLangugeJsonModelFromDBLanguageTable:(LanguageTable*)languageTable;
+
 @end

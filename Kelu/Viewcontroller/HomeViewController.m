@@ -9,11 +9,11 @@
 #import "HomeViewController.h"
 #import "TextsResponse.h"
 #import "HomeTableView.h"
+#import "TextThemeTable.h"
 
 @interface HomeViewController ()
 {
-    NSIndexPath *selectedIndexPath;
-    TextsResponse *textsResponse;
+    NSArray *textModels;
 }
 
 @property (weak, nonatomic) IBOutlet HomeTableView *homeTableView;
@@ -41,7 +41,8 @@
     if (self.refreshRequired)
     {
         self.refreshRequired = NO;
-        [self fetchDataForHome];
+        [self fetchTextModelFromDB];
+        //[self fetchDataForHome];
     }
 }
 
@@ -80,7 +81,8 @@
         withSuccessCompletionBlock:^(NSString *responseString) {
             
             [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
-            textsResponse = [[TextsResponse alloc] initWithString:responseString error:nil];
+            TextsResponse *textsResponse = [[TextsResponse alloc] initWithString:responseString error:nil];
+            textModels = textsResponse.TextsResponse;
             [self reload];
             
         } withFailureCompletionBlock:^(NSError *error) {
@@ -88,6 +90,14 @@
             [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
             [KeluAlertViewController showAlertControllerWithTitle:@"Error"                                                                                                 message:error.localizedDescription acceptActionTitle:@"OK"                                    acceptActionBlock:nil dismissActionTitle:nil dismissActionBlock:nil presentingViewController:self];
     }];
+}
+
+- (void)fetchTextModelFromDB
+{
+        textModels = [TextThemeTable getTextModelForThemeTag:[KKeyChain loadKeyChainValueForKey:kKeychainSelectedThemeTag]
+                                        withSelectedLanguage:[KKeyChain loadKeyChainValueForKey:kKeychainSelectedLanguageKey]
+                                                   dbManager:self.dbManager];
+    [self reload];
 }
 
 #pragma mark - Parameters
@@ -103,7 +113,7 @@
 
 - (void)reload
 {
-    self.homeTableView.textResponse = textsResponse.TextsResponse;
+    self.homeTableView.textResponse = textModels;
 }
 
 @end

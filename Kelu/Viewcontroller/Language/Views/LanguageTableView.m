@@ -10,6 +10,9 @@
 #import "LanguageCell.h"
 
 @interface LanguageTableView ()<UITableViewDelegate, UITableViewDataSource>
+{
+    
+}
 
 @end
 
@@ -91,5 +94,7 @@
         [self reloadData];
     });
 }
+
+#pragma mark - Private Method
 
 @end

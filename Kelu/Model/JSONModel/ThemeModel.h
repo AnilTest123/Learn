@@ -21,5 +21,8 @@
 @property(nonatomic,strong)NSString<Optional>*tag;
 @property(nonatomic,strong)NSString<Optional>*tag_code;
 @property(nonatomic,strong)NSString<Optional>*weight;
+@property(nonatomic,strong)NSString<Optional>*trans_key;
+
++(ThemeModel *)convertToThemeJsonModelFromDBThemeTable:(ThemeTable *)themeTable;
 
 @end

@@ -78,6 +78,8 @@
 - (void)initializeVariable
 {
     _refreshRequired = YES;
+    _dbManager = [KeluDatabaseManager sharedDatabaseManagerInstance];
+    
 }
 
 - (void)initializeHeaderView

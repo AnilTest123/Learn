@@ -10,4 +10,12 @@
 
 @implementation LanguageModel
 
++(LanguageModel*)convertToLangugeJsonModelFromDBLanguageTable:(LanguageTable*)languageTable
+{
+    LanguageModel *model = [[LanguageModel alloc] init];
+    model.lan_key = languageTable.languageKey;
+    model.language = languageTable.languageText;
+    return model;
+}
+
 @end

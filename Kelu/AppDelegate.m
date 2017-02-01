@@ -18,6 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //[self instantiateViewController];
+    [self saveDocumentDirectoryPath];
     return YES;
 }
 
@@ -86,6 +87,15 @@
 //        [self reset];
 //        return @"SignUpNavigationController";
 //    }
+}
+
+#pragma mark - Document Directory Path Store
+- (void)saveDocumentDirectoryPath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString  *documentsDirectory = [paths objectAtIndex:0];
+    [KKeyChain saveKeyChainValue:documentsDirectory forKey:kKeyChainDocumentDirectoryPath];
+
 }
 
 #pragma mark Rest
