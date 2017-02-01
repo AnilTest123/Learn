@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Kelu/Viewcontroller/HomeViewController.m"
-            timestampString = "507112561.645453"
+            filePath = "Kelu/Viewcontroller/My Stuff/MyStuffViewController.m"
+            timestampString = "507362426.900968"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-fetchDataForTheme"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "-initializeMyStuff"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
