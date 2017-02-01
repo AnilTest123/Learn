@@ -106,6 +106,12 @@
     NSString *urlString = [NSString  stringWithFormat:@"https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-574771754661/YAPPY_SOUND/%@/%@_%@.mp3", _textModel.dest_lan_key, _textModel.text_code, _textModel.dest_lan_key];
     NSURL *audioFileURL = [NSURL URLWithString:urlString];
     
+    [[ApiResponseHandler sharedApiResponseHandlerInstance] fetchSoudFileAndStoreForTextWithUrl:urlString fileSavePath:[KKeyChain loadKeyChainValueForKey:kKeyChainDocumentDirectoryPath] withSuccessCompletionBlock:^(NSString * responseState) {
+        
+    } withFailureCompletionBlock:^(NSError *error) {
+        
+    }];
+    
     NSData *audioData = [NSData dataWithContentsOfURL:audioFileURL];
     if (!audioData)
     {
