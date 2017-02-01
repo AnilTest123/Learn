@@ -102,12 +102,9 @@
         [KeluActivityIndicator showIndicator:self.view animated:YES];
         [[ApiResponseHandler sharedApiResponseHandlerInstance] signInUserWith:[self getUserSignInParameters]
                                                      withSuccessCompletionBlock:^(NSString *responseData) {
-                                                         [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
-                                                         [KKeyChain saveKeyChainValue:@"YES" forKey:kKeychainHasLoggedIn];
-                                                         NSLog(@"%@",responseData);
-                                                         [((AppDelegate*)[[UIApplication sharedApplication] delegate]) instantiateViewController];
-                                                         
-                                                     } withFailureCompletionBlock:^(NSError *error) {
+                                                        [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
+                                                         [self handleLoginSuccess];
+                                                                                                             } withFailureCompletionBlock:^(NSError *error) {
                                                          
                                                          [KeluActivityIndicator hideIndicatorForView:self.view animated:YES];
                                                          [KeluAlertViewController showAlertControllerWithTitle:@"Error"
@@ -154,6 +151,18 @@
         [self.navigationController pushViewController:signUpViewController animated:YES];
 }
 
+#pragma mark - Login Success
+-(void)handleLoginSuccess
+{
+    [KKeyChain saveKeyChainValue:@"YES" forKey:kKeychainHasLoggedIn];
+    [KKeyChain saveKeyChainValue:self.email.text forKey:kKeychainLoggedInUser];
+    
+    if([_delegate respondsToSelector:@selector(loginSuccessful)])
+    {
+        [_delegate loginSuccessful];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark - Delegates
 
 #pragma mark Social Networking View Delegates
