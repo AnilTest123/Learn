@@ -2,7 +2,7 @@
 //  SocialNetworkingView.m
 //  Kelu
 //
-//  Created by Nagarajan SD on 25/01/17.
+//  Created by Anil Chopra on 25/01/17.
 //  Copyright © 2017 Anil Chopra. All rights reserved.
 //
 
