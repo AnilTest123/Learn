@@ -8,7 +8,7 @@
 
 #import "HomeCell.h"
 
-@interface HomeCell()
+@interface HomeCell() <AVAudioPlayerDelegate>
 {
     AVAudioPlayer *audioPlayer;
 }
@@ -16,10 +16,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *text;
 @property (weak, nonatomic) IBOutlet UILabel *translatedText;
 @property (weak, nonatomic) IBOutlet UILabel *themeNames;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 
-- (IBAction)playButtonPressed:(id)sender;
-- (IBAction)favButtonPressed:(id)sender;
-- (IBAction)shareButtonPressed:(id)sender;
+- (IBAction)playButtonPressed:(UIButton *)sender;
+- (IBAction)favButtonPressed:(UIButton *)sender;
+- (IBAction)shareButtonPressed:(UIButton *)sender;
+- (IBAction)pauseButtonPressed:(UIButton *)sender;
 
 @end
 
@@ -81,22 +84,52 @@
 
 #pragma mark - Actions
 
-- (IBAction)playButtonPressed:(id)sender
+- (IBAction)playButtonPressed:(UIButton *)sender
 {
-    [self performSelectorInBackground:@selector(playAudioData) withObject:nil];
+    [self showPauseButton];
+    if (!audioPlayer)
+    {
+        [self playAudioData];
+    }
+    else
+    {
+        [audioPlayer play];
+    }
 }
 
-- (IBAction)favButtonPressed:(id)sender
+- (IBAction)favButtonPressed:(UIButton *)sender
 {
     
 }
 
-- (IBAction)shareButtonPressed:(id)sender
+- (IBAction)shareButtonPressed:(UIButton *)sender
 {
     if([_delegate respondsToSelector:@selector(tappedOnShareForObject:)])
     {
         [_delegate tappedOnShareForObject:_textModel];
     }
+}
+
+- (IBAction)pauseButtonPressed:(UIButton *)sender
+{
+    [self showPlayButton];
+    if ([audioPlayer isPlaying])
+    {
+        [audioPlayer pause];
+    }
+}
+
+#pragma mark - Paly button visibility
+- (void)showPlayButton
+{
+    self.playButton.hidden = NO;
+    self.pauseButton.hidden = YES;
+}
+
+- (void)showPauseButton
+{
+    self.playButton.hidden = YES;
+    self.pauseButton.hidden = NO;
 }
 
 #pragma mark - Private Method
@@ -106,35 +139,74 @@
     NSString *urlString = [NSString  stringWithFormat:@"https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-574771754661/YAPPY_SOUND/%@/%@_%@.mp3", _textModel.dest_lan_key, _textModel.text_code, _textModel.dest_lan_key];
     NSURL *audioFileURL = [NSURL URLWithString:urlString];
     
-    [[ApiResponseHandler sharedApiResponseHandlerInstance] fetchSoudFileAndStoreForTextWithUrl:urlString fileSavePath:[KKeyChain loadKeyChainValueForKey:kKeyChainDocumentDirectoryPath] withSuccessCompletionBlock:^(NSString * responseState) {
-        
-    } withFailureCompletionBlock:^(NSError *error) {
-        
-    }];
+    NSString *fileName = [audioFileURL lastPathComponent];
+    NSString *fileSavePath = [KKeyChain loadKeyChainValueForKey:kKeyChainDocumentDirectoryPath];
+    fileSavePath = [fileSavePath stringByAppendingPathComponent:fileName];
     
-    NSData *audioData = [NSData dataWithContentsOfURL:audioFileURL];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:fileSavePath])
+    {
+        [[ApiResponseHandler sharedApiResponseHandlerInstance] fetchSoudFileAndStoreForTextWithUrl:audioFileURL fileSavePath:fileSavePath withSuccessCompletionBlock:^(NSString * fileSavedPath) {
+            [self playAudioFileWithFileUrl:fileSavedPath];
+            
+        } withFailureCompletionBlock:^(NSError *error) {
+            [self audioFileNotFoundError:error];
+            
+        }];
+    }
+    else
+    {
+        [self playAudioFileWithFileUrl:fileSavePath];
+    }
+}
+
+- (void)playAudioFileWithFileUrl:(NSString *)fileUrl
+{
+    NSData *audioData = [NSData dataWithContentsOfFile:fileUrl];
     if (!audioData)
     {
-        NSLog(@"%@", audioData);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if ([_delegate respondsToSelector:@selector(showAudioFileNotFoundToast)])
-            {
-                [_delegate showAudioFileNotFoundToast];
-            }
-        });
-        return;
+        [self audioFileNotFoundError:nil];
     }
     NSError *error;
     
     audioPlayer = [[AVAudioPlayer alloc] initWithData:audioData error:&error];
     audioPlayer.numberOfLoops = 0;
     audioPlayer.volume = 1.0f;
+    audioPlayer.delegate = self;
     [audioPlayer prepareToPlay];
     
     if (audioPlayer == nil)
         NSLog(@"%@", [error description]);
     else
         [audioPlayer play];
+
+}
+
+- (void)audioFileNotFoundError:(NSError *)error
+{
+    [KeluAlertViewController showAlertControllerWithTitle:@"Audio File Error"
+                                                  message:error.localizedDescription
+                                        acceptActionTitle:@"OK"
+                                        acceptActionBlock:nil
+                                       dismissActionTitle:nil
+                                       dismissActionBlock:nil
+                                 presentingViewController:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([_delegate respondsToSelector:@selector(showAudioFileNotFoundToast)])
+        {
+            [_delegate showAudioFileNotFoundToast];
+        }
+    });
+    return;
+}
+
+#pragma mark - Delegates
+
+#pragma mark AVAudioPalyer Delegates
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    audioPlayer = nil;
+    [self showPlayButton];
 }
 
 @end

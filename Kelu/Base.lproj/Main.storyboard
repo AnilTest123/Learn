@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Y6c-AY-37j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Y6c-AY-37j">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -477,21 +477,38 @@
                                                         <constraint firstItem="v0f-FG-ilt" firstAttribute="centerY" secondItem="LRC-6p-o2t" secondAttribute="centerY" id="wca-kZ-N8J"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaf-O4-mae">
-                                                    <rect key="frame" x="317" y="60" width="30" height="30"/>
-                                                    <state key="normal" title="Play"/>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaf-O4-mae">
+                                                    <rect key="frame" x="307" y="55" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="aAa-Jz-SWA"/>
+                                                        <constraint firstAttribute="width" constant="40" id="bgB-T9-BhQ"/>
+                                                    </constraints>
+                                                    <state key="normal" image="PlayAudio"/>
                                                     <connections>
                                                         <action selector="playButtonPressed:" destination="fci-gf-3uf" eventType="touchUpInside" id="tsd-IF-L7p"/>
+                                                    </connections>
+                                                </button>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boB-7B-klZ">
+                                                    <rect key="frame" x="307" y="55" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="AXh-BX-7or"/>
+                                                        <constraint firstAttribute="width" constant="40" id="YDg-hk-k1V"/>
+                                                    </constraints>
+                                                    <state key="normal" image="PauseAudio"/>
+                                                    <connections>
+                                                        <action selector="pauseButtonPressed:" destination="fci-gf-3uf" eventType="touchUpInside" id="TbL-nv-AbC"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstItem="boB-7B-klZ" firstAttribute="centerY" secondItem="QW1-NM-dZQ" secondAttribute="centerY" id="Evy-4e-iEe"/>
                                                 <constraint firstItem="zaf-O4-mae" firstAttribute="centerY" secondItem="QW1-NM-dZQ" secondAttribute="centerY" id="GAg-9h-7yf"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="l1K-Aj-87g" secondAttribute="trailing" constant="40" id="LE6-Oa-beA"/>
                                                 <constraint firstItem="l1K-Aj-87g" firstAttribute="top" secondItem="QW1-NM-dZQ" secondAttribute="topMargin" id="Rh2-EM-NCr"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="LRC-6p-o2t" secondAttribute="bottom" id="Rw5-7A-0sp"/>
                                                 <constraint firstItem="LRC-6p-o2t" firstAttribute="top" secondItem="l1K-Aj-87g" secondAttribute="bottom" id="aPh-oE-7h9"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="boB-7B-klZ" secondAttribute="trailing" id="hAZ-OX-yKc"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="zaf-O4-mae" secondAttribute="trailing" id="lYc-Da-5i4"/>
                                                 <constraint firstItem="l1K-Aj-87g" firstAttribute="leading" secondItem="QW1-NM-dZQ" secondAttribute="leadingMargin" constant="20" id="lgY-OF-f8W"/>
                                                 <constraint firstItem="LRC-6p-o2t" firstAttribute="leading" secondItem="l1K-Aj-87g" secondAttribute="leading" id="lh4-Zg-JVA"/>
@@ -502,6 +519,8 @@
                                         <connections>
                                             <outlet property="bottomView" destination="LRC-6p-o2t" id="rKa-Os-wqP"/>
                                             <outlet property="bottomViewHeight" destination="4I3-61-6Tf" id="dHH-ud-Tt1"/>
+                                            <outlet property="pauseButton" destination="boB-7B-klZ" id="Kba-bp-csY"/>
+                                            <outlet property="playButton" destination="zaf-O4-mae" id="zDq-kU-HOA"/>
                                             <outlet property="text" destination="n78-px-BJC" id="JXQ-Ye-Fko"/>
                                             <outlet property="themeNames" destination="zrZ-Wf-nQv" id="iC1-Gg-BbJ"/>
                                             <outlet property="translatedText" destination="aKW-5v-zB2" id="iZ9-b0-dgg"/>
@@ -852,4 +871,8 @@
             <point key="canvasLocation" x="-170.40000000000001" y="1447.8260869565217"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PauseAudio" width="48" height="48"/>
+        <image name="PlayAudio" width="48" height="48"/>
+    </resources>
 </document>

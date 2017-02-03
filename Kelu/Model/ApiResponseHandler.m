@@ -130,17 +130,15 @@ static dispatch_once_t dispatchOnce;
     [self performHttpOperationWithType:@"GET" WithBaseURL:self.baseURL withEndPoint:@"locationtags/" withParameteres:parameters SuccessCompletionBlock:success withFailureCompletionBlock:failure];
 }
 
-- (void)fetchSoudFileAndStoreForTextWithUrl:(NSString *)fileUrl  fileSavePath:(NSString *)fileSavePath withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure
+- (void)fetchSoudFileAndStoreForTextWithUrl:(NSURL *)fileUrl  fileSavePath:(NSString *)fileSavePath withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure
 {
     // Step 1: create NSURL with full path to downloading file
     // for example try this: NSString *fileUrl = @"https://pbs.twimg.com/profile_images/2331579964/jrqzn4q29vwy4mors75s_400x400.png";
     // And create NSURLRequest object with our URL
-    NSURL *URL = [NSURL URLWithString:fileUrl];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    NSURLRequest *request = [NSURLRequest requestWithURL:fileUrl];
     
     // Step 2: save downloading file's name
     // For example our fileName string is equal to 'jrqzn4q29vwy4mors75s_400x400.png'
-    NSString *fileName = [URL lastPathComponent];
     
     // Step 3: create AFHTTPRequestOperation object with our request
     AFHTTPRequestOperation *downloadRequest = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -152,8 +150,10 @@ static dispatch_once_t dispatchOnce;
         // ... and save this object as file
         // Here 'pathToFile' must be path to directory 'Documents' on your device + filename, of course
         [data writeToFile:fileSavePath atomically:YES];
+        success(fileSavePath);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"file downloading error : %@", [error localizedDescription]);
+        failure(error);
     }];
     
     // Step 5: begin asynchronous download

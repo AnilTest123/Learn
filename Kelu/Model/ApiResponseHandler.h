@@ -33,5 +33,5 @@ withFailureCompletionBlock:(void(^)(NSError*error))failure;
 #pragma mark - Themes
 - (void)fetchThemesWithParams:(NSMutableDictionary *)parameters withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure;
 
-- (void)fetchSoudFileAndStoreForTextWithUrl:(NSString *)fileUrl  fileSavePath:(NSString *)fileSavePath withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure;
+- (void)fetchSoudFileAndStoreForTextWithUrl:(NSURL *)fileUrl  fileSavePath:(NSString *)fileSavePath withSuccessCompletionBlock:(void (^)(NSString *))success withFailureCompletionBlock:(void (^)(NSError *))failure;
 @end
